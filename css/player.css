@@ -1,0 +1,505 @@
+.card.player.character .bg {
+    background-image: url("../images/bg/black_low.png");
+}
+
+
+ /* Dynamic colors. */
+.card.player .title .content.color-first-letter:not(.editing)::first-letter, 
+.card.player .type .content {
+    color: #f00;
+}
+.card.player .plate.bottom .shape {
+    border-right-color: #f00;
+}
+.card.player .plate.bottom .polygon {
+    border-right-color: #f00;
+}
+
+
+.card.player .subtitle .content:before {
+    content: "THE ";
+    font-size: 28px;
+}
+
+
+.card.player .stat.position {
+    top: 166px; /* customize per stat */
+    right: 0px;
+}
+.card.player .stat span {
+    display: inline-block;
+}
+.card.player .stat .triangle {
+    width: 0;
+    height: 0;
+    border-top: 44px solid transparent;
+    border-right: 44px solid #000;
+    border-bottom: 44px solid transparent;
+}
+.card.player .stat .square {
+    height: 88px;
+    width: 180px;
+    background-color: #000;
+}
+.card.player .stat .shadow {
+    /*filter: drop-shadow(0px 0px 10px #ffffff55);*/
+}
+.card.player .stat .polygon {
+    height: 88px;
+    width: 224px;
+    background-color: #000;
+    clip-path: polygon(0 50%, 44px 0, 100% 0, 100% 100%, 44px 100%);
+}
+.card.player .stat .img {
+    position: absolute;
+    top: -20px;
+    left: -2px;
+    height: 125px;
+    width: 125px;
+}
+.card.player .stat .modifier {
+    position: absolute;
+    top: -1px;
+    left: 99px;
+
+    font-weight: bold;
+    font-size: 48px;
+
+    transform-origin: top left;
+    -webkit-transform: scale(1.043, 1.05);
+    -moz-transform: scale(1.043, 1.05);
+    -ms-transform: scale(1.043, 1.05);
+    -o-transform: scale(1.043, 1.05);
+    transform: scale(1.043, 1.05);
+}
+.card.player .stat .modifier:before {
+    content: "+";
+}
+.card.player .stat .modifier.negative:before {
+    content: "−";
+}
+.card.player .stat .label {
+    position: absolute;
+    top: 49px;
+    right: 72px;
+
+    font-weight: bold;
+    font-variant: small-caps;
+    font-size: 24px;
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+
+    transform-origin: top left;
+    -webkit-transform: scale(1.08, 1);
+    -moz-transform: scale(1.08, 1);
+    -ms-transform: scale(1.08, 1);
+    -o-transform: scale(1.08, 1);
+    transform: scale(1.08, 1);
+}
+/* Individual stat parameters. */
+/* Tough. */
+.card.player.character .tough.stat.position {
+    top: 166px;
+}
+.card.player .tough.stat .img {
+    background-image: url("../images/stats/tough.png");
+}
+.card.player .tough.stat .modifier, 
+.card.player .tough.stat .label, 
+.card.player .main .content:not(.editing) u.tough {
+    color: #ba5489;
+}
+/* Calm. */
+.card.player.character .calm.stat.position {
+    top: 303px; /* +137 */
+}
+.card.player .calm.stat .img {
+    background-image: url("../images/stats/calm.png");
+}
+.card.player .calm.stat .modifier, 
+.card.player .calm.stat .label, 
+.card.player .main .content:not(.editing) u.calm {
+    color: #1fa2c1;
+}
+/* Hasty. */
+.card.player.character .hasty.stat.position {
+    top: 440px; /* +137 */
+}
+.card.player .hasty.stat .img {
+    background-image: url("../images/stats/hasty.png");
+}
+.card.player .hasty.stat .modifier, 
+.card.player .hasty.stat .label, 
+.card.player .main .content:not(.editing) u.hasty {
+    color: #eb9c4d;
+}
+/* Bright. */
+.card.player.character .bright.stat.position {
+    top: 577px; /* +137 */
+}
+.card.player .bright.stat .img {
+    background-image: url("../images/stats/bright.png");
+}
+.card.player .bright.stat .modifier, 
+.card.player .bright.stat .label, 
+.card.player .main .content:not(.editing) u.bright {
+    color: #f4eb6b;
+}
+/* Sly. */
+.card.player.character .sly.stat.position {
+    top: 714px; /* +137 */
+}
+.card.player .sly.stat .img {
+    background-image: url("../images/stats/sly.png");
+}
+.card.player .sly.stat .modifier, 
+.card.player .sly.stat .label, 
+.card.player .main .content:not(.editing) u.sly {
+    color: #6aba92;
+}
+
+
+.card.player.character .mid-divider, 
+.card.player.character .expansion.position {
+    top: 861px;
+}
+.card.player.character .main.position {
+    top: 924px; /* +63px from divider. */
+}
+
+
+.card.player .expansion.position {
+    right: 0px;
+    width: 100%;
+    text-align: center;
+}
+.card.player .expansion .content {
+    font-size: 37px;
+    margin-top: -7px;
+    transform-origin: center;
+}
+
+
+.card.player.character .symbol .img {
+    background-image: url("../images/corner/character.png");
+}
+
+
+.card.player .color.position {
+    bottom: 73px;
+    right: 60px;
+}
+.card.player .color .content {
+    font-weight: bold;
+    text-align: right;
+    
+    color: #fff;
+    background-color: #000;
+    opacity: 0;
+
+    transform-origin: right;
+    -webkit-transform: scale(2, 1);
+    -moz-transform: scale(2, 1);
+    -ms-transform: scale(2, 1);
+    -o-transform: scale(2, 1);
+    transform: scale(2, 1);
+}
+.card.player .color .content {
+    font-size: 36px;
+}
+.card.player .color .content:before {
+    content: "#";
+    color: #959c9d;
+}
+.card.player .color .content.editing {
+    opacity: 1;
+}
+
+
+
+/* Styling for basic moves. */
+.card.player.move .title.position {
+    top: 63px;
+}
+.card.player.move .title .content {
+    font-size: 36px;
+    -webkit-transform: scale(1.15, 1);
+    -moz-transform: scale(1.15, 1);
+    -ms-transform: scale(1.15, 1);
+    -o-transform: scale(1.15, 1);
+    transform: scale(1.15, 1);
+}
+.card.player.move .symbol .img {
+    background-image: url("../images/corner/move_basic.png");
+}
+
+
+
+/* Styling for super moves. */
+.card.player.super.move .symbol .img {
+    background-image: url("../images/corner/move_super.png");
+}
+/* Health stat (for supermove stat upgrades). *
+.card.player .health.stat .img {
+    top: 13px;
+    left: 27px;
+    height: 67px;
+    width: 67px;
+    background-image: url("../images/heart-white.png");
+}
+.card.player .health.stat .modifier, 
+.card.player .health.stat .label, 
+.card.player .main .content:not(.editing) u.sly {
+    color: #d7162f;
+} /**/
+/* If we want just +H, use these instead: */
+.card.player.super.move .stat.health .img {
+    top: 11px;
+    left: 60px;
+    height: 67px;
+    width: 67px;
+    background-image: url("../images/heart-white.png");
+}
+.card.player.super.move .stat.health .modifier {
+    color: transparent;
+    top: 12px;
+    left: 30px;
+}
+.card.player.super.move .stat.health .modifier:before {
+    color: #d7162f;
+}
+.card.player.super.move .stat.health .label {
+    display: none;
+} /**/
+.card.player.super.move .stat .modifier {
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+/* Picker for changing the stat. */
+.card.player.super.move .stat select.upgrader {
+    position: absolute;
+    top: 17px;
+    right: 45px;
+
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 48px;
+    color: #fff;
+    direction: rtl;
+
+    background-color: #000;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    display: none;
+}
+.card.player.super.move .stat:hover .upgrader {
+    display: block;
+}
+
+
+
+
+/* Card backs. */
+.card.player.back .bg {
+    background-image: none;
+}
+
+.card.player.back .plate.wide.position {
+    top: 0px;
+    left: 0px;
+}
+.card.player.back .plate.wide .square {
+    display: inline-block;
+    width: 503px;
+    height: 210px;
+    background: #000;
+}
+.card.player.back .plate.wide .triangle {
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    border-top: 0px solid transparent;
+    border-left: 210px solid #000;
+    border-bottom: 210px solid transparent;
+}
+.card.player.back .plate.wide .polygon {
+    display: inline-block;
+    width: 713px;
+    height: 210px;
+    background-color: #000;
+    clip-path: polygon(0 0, 100% 0, 503px 100%, 0 100%);
+}
+
+.card.player.back .title.position {
+    top: 71px;
+}
+.card.player.back .title .content {
+    font-size: 50px;
+    text-shadow: none;
+
+    -webkit-transform: scale(1.15, 1);
+    -moz-transform: scale(1.15, 1);
+    -ms-transform: scale(1.15, 1);
+    -o-transform: scale(1.15, 1);
+    transform: scale(1.15, 1);
+}
+
+.card.player.back .back-text.position {
+    width: auto;
+    text-align: right;
+
+    transform-origin: top right;
+    transform: rotate(-45deg);
+}
+/* Mess with rotation/scaling origins to get these all lined up. */
+.card.player.character.back .back-text.position {
+    top: 55px; /* 55 / 54 / 50 */
+    left: 517px; /* 517 / 516 / 513 */
+}
+.card.player.move.back .back-text.position {
+    top: 54px; /* 55 / 54 / 50 */
+    left: 516px; /* 517 / 516 / 513 */
+}
+.card.player.super.back .back-text.position {
+    top: 50px; /* 55 / 54 / 50 */
+    left: 513px; /* 517 / 516 / 513 */
+}
+.card.player.back .back-text .content {
+    font-size: 26px;
+    color: #000;
+
+    transform-origin: right;
+    -webkit-transform:scale(1.34,1); /* Safari and Chrome */
+    -moz-transform:scale(1.34,1); /* Firefox */
+    -ms-transform:scale(1.34,1); /* IE 9 */
+    -o-transform:scale(1.34,1); /* Opera */
+    transform:scale(1.34,1); /* W3C */
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+.card.player.back .back-icon.position {
+    top: 0px;
+    right: 0px;
+}
+.card.player.back .back-icon .img {
+    display: inline-block;
+    width: 633px;
+    height: 673px;
+}
+.card.player.character.back .back-icon .img {
+    background-image: url("../images/back/character.png");
+}
+.card.player.move.back .back-icon .img {
+    background-image: url("../images/back/move.png");
+}
+.card.player.super.back .back-icon .img {
+    background-image: url("../images/back/super.png");
+}
+
+.card.player.back .back-divider.position, 
+.card.player.back .back-portrait.position, 
+.card.player.back .art {
+    top: 229px;
+    left: 0px;
+}
+.card.player.back .back-divider .line {
+    display: inline-block;
+    width: 463px;
+    height: 5px;
+    background: #f00; /* Dynamic. */
+}
+.card.player.back .back-divider .tag {
+    position: absolute;
+    display: inline-block;
+    top: 10px;
+    left: 454px;
+    width: 16px;
+    height: 9px;
+    background: #f00; /* Dynamic. */
+
+    transform: skew(-45deg, 0);
+}
+
+.card.player.back .back-portrait.position, 
+.card.player.back .art {
+    margin-top: 9px;
+}
+.card.player.back .art {
+    width: 475px;
+    height: 175px;
+}
+.card.player.back .art img {
+    clip-path: polygon(0% 0%, 100% 0, 63.15789% 100%, 0% 100%);
+}
+.card.player.back .back-portrait .mask {
+    position: absolute;
+    display: inline-block;
+    margin-top: -5px;
+    left: 295px;
+
+    border-top: 185px solid transparent;
+    border-right: 185px solid #fff;
+    border-bottom: 0px solid transparent;
+    display: none;
+}
+
+
+.card.player.back .chapter.position {
+    top: 429px;
+    width: 100%;
+    text-align: center;
+}
+.card.player.character.back .chapter.position {
+    top: 481px;
+}
+.card.player.back .chapter .content {
+    font-size: 37px;
+    font-weight: bold;
+    max-width: 550px;
+    color: #f00; /* Dynamic. */
+
+    transform-origin: center;
+    /* Note: to match template, should be 1.32 and -2px left... */
+    -webkit-transform:scale(1.34,1); /* Safari and Chrome */
+    -moz-transform:scale(1.34,1); /* Firefox */
+    -ms-transform:scale(1.34,1); /* IE 9 */
+    -o-transform:scale(1.34,1); /* Opera */
+    transform:scale(1.34,1); /* W3C */
+}
+.card.player.back .chapter .content:before, 
+.card.player.back .chapter .content:after {
+    content: "\"";
+}
+.card.player.back .chapter .content:before {
+    /*content: "“";*/
+    content: "\201C";
+}
+.card.player.back .chapter .content:after {
+    /*content: "”";*/
+    content: "\201D";
+}
+
+.card.player.back .main.position {
+    top: 614px;
+}
+.card.player.back .main .content {
+    color: #000;
+}
+
+.card.player.back .plate.bottom .shape {
+    border-right-color: #000;
+}
+.card.player.back .plate.bottom .polygon {
+    background-color: #000;
+}
+
+

@@ -1,0 +1,532 @@
+.menu-main {
+    position: absolute;
+    box-sizing: border-box;
+    top: 0px;
+    width: 980px;
+    max-height: 35px;
+    background: #fff;
+    padding: 0;
+    z-index: 2;
+
+    transition: opacity 0.25s ease-in-out, max-height 0s, padding 0s, width 0s;
+    transition-delay: 0s, 0.25s, 0.25s, 0.25s;
+}
+.menu-main.right {
+    right: 0px;
+}
+.menu-main:not(.open) {
+    width: 55px;
+}
+.menu-main:not(.open) .item, 
+.menu-main:not(.open) .lockbar .switches :not(.label) {
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out, max-height 0s, padding 0s, width 0s;
+    transition-delay: 0s, 0.25s, 0.25s, 0.25s;
+}
+
+.menu-main .item .name {
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 24px;
+}
+.menu-main .item.active>.name {
+    font-size: 32px;
+}
+.menu-main>.item.root.active>.contents>.item>.name {
+    font-size: 32px;
+}
+.menu-main .item .name:hover {
+    color: #69bdae;
+}
+.menu-main .item .contents {
+    margin-left: 20px;
+}
+.menu-main, 
+.menu-main .item, 
+.menu-main .name, 
+.menu-main .contents {
+    overflow: hidden;
+}
+
+/* Back out of a menu item. */
+.menu-main .active>.name:hover, 
+.menu-main .parent-of-active>.name:hover {
+    color: #d7162f;
+}
+.menu-main .name:before {
+    display: inline-flex;
+    width: 0px;
+    overflow: hidden;
+    content: "×";
+}
+.menu-main .parent-of-active>.name:hover:before {
+    width: 16px;
+}
+.menu-main .active>.name:hover:before {
+    width: 20px;
+}
+
+
+/* Visibility management. */
+.menu-main .item, 
+.menu-main .contents {
+    max-height: 0px;
+    transition: none;
+}
+.menu-main .active, 
+.menu-main .active>.contents, 
+.menu-main .active>.contents>.item, 
+.menu-main .parent-of-active, 
+.menu-main .parent-of-active>.contents {
+    max-height: 1400px;
+    transition: max-height 1s ease-in-out;
+}
+.menu-main.open {
+    max-height: 200%;
+    padding: 80px 80px 80px 80px;
+
+    transition: opacity 0.25s ease-in-out;
+}
+.menu-main.open .item, 
+.menu-main.open .lockbar .switches :not(.label) {
+    transition: opacity 0.25s ease-in-out;
+    opacity: 1;
+}
+.menu-main .parent-of-active>.contents>.description {
+    display: none;
+}
+.menu-main.never {
+    display: none;
+}
+
+.menu-main .description {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+
+/* Individual menus. */
+/* Form styling. */
+.menu-main form {
+    font-weight: bold;
+    width: 90%;
+    margin-left: 3px;
+}
+.menu-main form input[type=text], 
+.menu-main form input[type=text]:focus {
+    font-family: 'Ubuntu', sans-serif;
+    width: 90%;
+    border: none;
+    outline: none;
+    padding: 5px;
+    margin: 3px;
+    color: #69bdae;
+}
+.menu-main form input[type=text]:-webkit-autofill, 
+.menu-main form input[type=text]:-webkit-autofill:hover, 
+.menu-main form input[type=text]:-webkit-autofill:focus, 
+.menu-main form input[type=text]:-webkit-autofill:active {
+    font-family: 'Ubuntu', sans-serif;
+    -webkit-text-fill-color: #69bdae;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+.menu-main form button {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+}
+.menu-main form button + button {
+    margin-left: 20px;
+}
+.menu-main form button[type=submit]:before {
+    content: "✓";
+    margin-right: 3px;
+}
+.menu-main form button[type=submit]:hover {
+    color: #69bdae;
+}
+.menu-main form button[type=reset]:before {
+    content: "×";
+    margin-right: 3px;
+}
+.menu-main form button[type=reset]:hover {
+    color: #d7162f;
+}
+
+.menu-main form .status {
+    display: inline-block;
+    font-weight: normal;
+    width: 50%;
+    margin-left: 30px;
+    color: #959c9d;
+
+    opacity: 0;
+    cursor: default;
+}
+
+
+
+/* Standalone cards. */
+.menu-main .row .img {
+    display: inline-block;
+    width: 48px;
+    height: 53px;
+
+    padding-bottom: 2px;
+    background-repeat: no-repeat;
+    /*background-position-y: 1px;*/
+    background-position-x: center;
+
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+}
+.menu-main .creations .row .img {
+    width: calc(48px * var(--width));
+}
+.menu-main .row .img:hover {
+    border-bottom-color: #000;
+}
+.menu-main .row .backdrop.img {
+    background-image: url("../images/menu/singles/backdrop.png");
+    filter: brightness(0) saturate(100%) invert(74%) sepia(63%) saturate(255%) hue-rotate(119deg) brightness(84%) contrast(84%);
+}
+.menu-main .row .story.img {
+    background-image: url("../images/menu/singles/story.png");
+    filter: brightness(0) saturate(100%) invert(57%) sepia(37%) saturate(519%) hue-rotate(76deg) brightness(103%) contrast(89%);
+}
+.menu-main .row .scene.img {
+    background-image: url("../images/menu/singles/scene.png");
+    filter: brightness(0) saturate(100%) invert(60%) sepia(49%) saturate(679%) hue-rotate(338deg) brightness(93%) contrast(87%);
+}
+.menu-main .row .extra.img {
+    background-image: url("../images/menu/singles/extra.png");
+    filter: brightness(0) saturate(100%) invert(68%) sepia(15%) saturate(1564%) hue-rotate(166deg) brightness(90%) contrast(87%);
+}
+.menu-main .row.front .star.img, 
+.menu-main .row.back .extra.img {
+    background-image: url("../images/menu/singles/star.png");
+}
+.menu-main .row .star.img {
+    filter: brightness(0) saturate(100%) invert(68%) sepia(15%) saturate(1564%) hue-rotate(166deg) brightness(90%) contrast(87%);
+}
+.menu-main .row.back .star.img {
+    background-image: url("../images/menu/singles/boss.png");
+}
+.menu-main .row .prop.img {
+    background-image: url("../images/menu/singles/prop.png");
+    filter: brightness(0) saturate(100%) invert(65%) sepia(2%) saturate(2987%) hue-rotate(5deg) brightness(89%) contrast(76%);
+}
+.menu-main .row .twist.img {
+    background-image: url("../images/menu/singles/twist.png");
+    filter: brightness(0) saturate(100%) invert(50%) sepia(12%) saturate(1208%) hue-rotate(239deg) brightness(90%) contrast(88%);
+}
+.menu-main .row .character.img {
+    background-image: url("../images/menu/singles/character.png");
+    filter: brightness(0) saturate(100%);
+}
+.menu-main .row .move.img {
+    background-image: url("../images/menu/singles/move.png");
+    filter: brightness(0) saturate(100%);
+}
+.menu-main .row .super.img {
+    background-image: url("../images/menu/singles/super.png");
+    filter: brightness(0) saturate(100%);
+}
+.menu-main .row .reference.img {
+    background-image: url("../images/menu/singles/reference.png");
+    filter: brightness(0) saturate(100%);
+}
+.menu-main .row .xcard.img {
+    background-image: url("../images/menu/singles/xcard.png");
+    filter: brightness(0) invert(21%) sepia(82%) saturate(3696%) hue-rotate(341deg) brightness(83%) contrast(104%);
+}
+.menu-main .row.back .img {
+    margin-top: -6px;
+    transform: scaleY(-1);
+    filter: brightness(0.8) saturate(0%);
+}
+.menu-main .row.back .img:hover {
+    border-bottom-color: #fff;
+}
+.menu-main .row .gap {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.menu-main .active, 
+.menu-main .parent-of-active, 
+.menu-main .active>.contents, 
+.menu-main .parent-of-active>.contents {
+    overflow: visible;
+}
+
+.menu-main .row .outer {
+    position: relative;
+}
+.menu-main .row .tooltip {
+    position: absolute;
+    display: inline-flex;
+    flex-direction: row;
+    font-weight: bold;
+
+    left: 50%;
+    transform: translate(-50%);
+    width: max-content;
+    z-index: 1;
+}
+.menu-main .row .tooltip .text {
+    display: inline-block;
+    background: #ccc;
+    color: #fff;
+    height: 22px;
+    padding: 2px 2px 0 2px;
+}
+.menu-main .row.front .img.backdrop+.tooltip .text {
+    background: #69bfb0;
+}
+.menu-main .row.front .img.story+.tooltip .text {
+    background: #62b46b;
+}
+.menu-main .row.front .img.scene+.tooltip .text {
+    background: #df8643;
+}
+.menu-main .row.front .img.extra+.tooltip .text, 
+.menu-main .row.front .img.star+.tooltip .text {
+    background: #66a6d8;
+}
+.menu-main .row.front .img.prop+.tooltip .text {
+    background: #9e8b89;
+}
+.menu-main .row.front .img.twist+.tooltip .text {
+    background: #906c9b;
+}
+.menu-main .row.front .img.character+.tooltip .text, 
+.menu-main .row.front .img.move+.tooltip .text, 
+.menu-main .row.front .img.super+.tooltip .text {
+    background: #000;
+}
+.menu-main .row.back .tooltip .text {
+    color: #000;
+}
+.menu-main .row .outer:not(:hover) .tooltip {
+    display: none;
+}
+.menu-main .row.front .tooltip {
+    top: -61px;
+    top: 20px;
+}
+.menu-main .row.back .tooltip {
+    bottom: -15px;
+    bottom: 66px;
+}
+.menu-main .row.front .img.loaded {
+    border-bottom-color: #000;
+}
+.menu-main .row.back .img.loaded {
+    border-bottom-color: #fff;
+}
+
+.menu-main .export {
+    color: #ccc;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+.menu-main .export:before {
+    content: "▼ ";
+}
+.menu-main .export .go {
+    font-weight: bold;
+    color: #69bdae;
+    cursor: pointer;
+    margin-left: 10px;
+
+    display: none;
+}
+.menu-main .export:hover {
+    color: #000;
+}
+.menu-main .export:hover .go {
+    display: inline;
+}
+
+
+
+.menu-main .settings .label {
+    display: inline-block;
+    width: 200px;
+    font-weight: bold;
+    text-align: right;
+}
+.menu-main .settings input[type="radio"] {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border: 1px solid #69bdae;
+    margin: 2px 5px 1px 12px;
+    padding: 0;
+    -webkit-appearance: none;
+    transform: rotate(45deg);
+}
+.menu-main .settings input[type="radio"]:checked {
+    background: #69bdae;
+}
+.menu-main .settings label {
+    color: #69bdae;
+}
+.menu-main .settings input[type="radio"]:checked+label {
+    color: #000;
+}
+
+
+
+.menu-main .help .hidden-fields img, 
+.menu-main .help .art-root img {
+    border: 1px solid #ccc;
+}
+
+.menu-main .help .copy-sheet a {
+    color: #69bdae;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-main .help .controls .description div strong, 
+.control-overlay div strong {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    margin-right: 5px;
+    margin-top: 3px;
+}
+
+.menu-main .report .hpot {
+    display: none;
+}
+.menu-main .report textarea {
+    width: 500px;
+    resize: none;
+    border: 1px solid #ccc;
+}
+.menu-main .report textarea[name=replyto] {
+    height: 1.1em;
+}
+.menu-main .report textarea[name=comments] {
+    height: 200px;
+}
+.menu-main .report .description {
+    color: #ccc;
+}
+
+
+
+.menu-main .lockbar {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 5px 0;
+    font-variant: small-caps;
+}
+.menu-main.right .lockbar {
+    flex-direction: row-reverse;
+}
+.menu-main .lockbar .label {
+    margin: 0 10px;
+    font-weight: bold;
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+    cursor: pointer;
+}
+.menu-main .lockbar .switch {
+    margin: 0 4px;
+    color: #ccc;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+.menu-main .lockbar .label:hover, 
+.menu-main .lockbar .switch:hover {
+    color: #69bdae;
+}
+.menu-main.open .lockbar .label:hover {
+    color: #d7162f;
+}
+.menu-main .lockbar .gap {
+    display: inline-block;
+    width: 12px;
+}
+
+
+.control-overlay {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    padding: 12px;
+
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+}
+
+
+.saving {
+    position: fixed;
+    display: none;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: #ffffffcc;
+
+    text-align: center;
+    /*vertical-align: middle;*/
+    font-size: 72px;
+    font-weight: bold;
+    font-variant: all-small-caps;
+    transform: scale(1.2,1);
+
+    padding-top: 100px;
+}
+
+
+@media (max-width: 1080px) {
+    .menu-main:not(.open) {
+        width: 160px;
+        max-height: 90px;
+    }
+    .menu-main .lockbar {
+        transform: scale(3);
+        transform-origin: top left;
+    }
+    .menu-main.right .lockbar {
+        transform-origin: top right;
+    }
+
+    .menu-main .item .name {
+        font-size: 36px;
+    }
+    .menu-main>.item.root.active>.contents>.item>.name, 
+    .menu-main .item.active>.name {
+        font-size: 48px;
+    }
+    .menu-main .parent-of-active>.name:hover:before {
+        width: 24px;
+    }
+    .menu-main .active>.name:hover:before {
+        width: 30px;
+    }
+}
+

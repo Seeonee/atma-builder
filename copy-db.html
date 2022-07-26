@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="card-gen" content="Card Generator" />
+        <meta charset="utf-8" />
+        <title>Card Generator</title>
+        <link rel="icon" type="image/ico" href="favicon.ico" />
+
+        <!-- My style sheets -->
+        <link rel="stylesheet" type="text/css" href="css/copy-db.css" />
+        <!-- My scripts -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/copy-db.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700,700i&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>1. Copy the sheet</h1>
+        <p><a href="https://docs.google.com/spreadsheets/d/1JUW6gbs_l8wtchVymdyGEVCReVqxQ2HuPHPVGrxt9iU/copy">Create a personal copy</a> of the public <em>AtmaDB-template</em> sheet.</p>
+        <p>Once you've copied the sheet, you can rename it to whatever you like, and move it anywhere within your personal Google Drive folders.</p>
+
+        <h1>2. Publish the script</h1>
+        <p>Within your <em>AtmaDB</em> sheet, go to Extensions > Apps Script.</p>
+        <p>In the script editor, go to the top right and click Deploy > Manage deployments.</p>
+        <p>In the Manage deployments popup, click <em>Create deployment</em>. Leave all values set to default and click <em>Deploy</em>.</p>
+        <p>The app requires permissions to edit Google Drive; click through to review app permissions and authorize them.</p>
+        <p>Upon completion, copy the URL of the published web app.</p>
+
+        <button class="collapsible">Illustrated walkthrough</button>
+        <div class="content">
+            <img src="images/copy-db/steps-01.png">
+            <img src="images/copy-db/steps-02.png">
+            <img src="images/copy-db/steps-03.png">
+            <img src="images/copy-db/steps-04.png">
+            <img src="images/copy-db/steps-05.png">
+            <img src="images/copy-db/steps-06.png">
+            <img src="images/copy-db/steps-07.png">
+            <img src="images/copy-db/steps-08.png">
+        </div>
+
+        <!-- 
+        <h1>2. Publish the script (OLD GUIDANCE)</h1>
+        <p>Within your <em>AtmaDB</em> sheet, go to Tools > Script Editor.</p>
+        <p>In the script editor, go to File > Manage versions > Save new version. Click <em>OK</em>.</p>
+        <p>Still in the script editor, go to Publish > Deploy as web app. Leave all settings at their default values and click <em>Update</em>.</p>
+        <p>The app requires permissions to edit Google Drive; click through to review app permissions and authorize them.</p>
+        <p>Upon completion, copy the URL of the published web app.</p>
+         -->
+
+        <h1>3. Link the script URL</h1>
+        <p>Within the <a href="./?">Card Generator</a>, go to Menu > Externals > Google Sheet.</p>
+        <p>Paste in the URL of your published web app. Click <em>Save</em>.</p>
+        <p>Refresh the page.</p>
+
+        <h1>4. Start creating!</h1>
+        <p>You can create new sets and characters from Menu > Creations.</p>
+        <p>Save local changes to your personal sheet by pressing <em>ctrl+shift+S</em>.</p>
+
+        <h1>5. What the heck is this doing?</h1>
+        <p>When you copy the public (read-only) Google Sheet, you're making your own private copy. That copy includes the app script that's baked into the original sheet. By default, the app script in your new copy is inert.</p>
+        <p>When you deploy your copy of the app script, you're doing two things:</p>
+        <ul>
+            <li>allowing your (new, private) copy of the app script to make changes to your (new, private) copy of the sheet;</li>
+            <li>getting a (new) URL that anyone can use to pass data to your (new, private) app script, causing it to record data in the sheet or expose data from the sheet.</li>
+        </ul>
+        <p>Since no one but you has the (new) URL, no one but you can invoke your (new, private) copy of the app script. Don't share the URL, and you'll be good to go.</p>
+        <p>You can examine exactly what the app script is doing via Tools > Script Editor. Notably, it only interacts with the sheet it's in, and that's all it will do unless someone changes the script itself. Since your (new, private) script lives in your (new, private) sheet, no one else can edit the script to make it do nefarious things to your other documents. Well, no one but you!</p>
+        <p>If you have any questions, you can always stop by our <a href="https://discord.com/invite/CaMYnUZ">Discord</a> and ask us!</p>
+
+        <h1>5. Why so complicated?</h1>
+        <p>Because I'm not a web backend developer!</p>
+        <p>While we're excited to share this tool publicly, its primary purpose is to support our workflow for creating Atma content. The current form of the tool does that well enough. We do this in our free time, so creating something more robust wasn't worth the time, research, and money.</p>
+        <p>By using a Google Sheet as the backend "database", we also avoid the thorny issue of hosting other people's content without knowing what it is.</p>
+
+    </body>
+</html>

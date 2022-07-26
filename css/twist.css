@@ -1,0 +1,100 @@
+.card.twist .title .content.color-first-letter:not(.editing)::first-letter {
+    color: #906c9d;
+}
+
+
+.card.twist .goalpost.position {
+    top: 1287px;
+    left: 100px;
+}
+.card.twist .goalpost .bar {
+    display: inline-block;
+    width: 5px;
+    height: 124px;
+    background: #906c9d;
+    flex-grow: 1;
+}
+
+
+.card.twist .main.label.position, 
+.card.twist .main.alternate.position {
+    left: 137px;
+}
+.card.twist .main.label.position {
+    top: 1276px;
+}
+.card.twist .main.label .content {
+    font-style: italic;
+    color: #959c9d;
+}
+.card.twist .main.label .content, 
+.card.twist .main.alternate .content {
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+.card.twist .main.alternate.position {
+    top: 1321px;
+    height: 100px;
+    width: 515px;
+}
+.card.twist .alternate select.twister {
+    position: absolute;
+    top: 17px;
+    left: 35px;
+
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 48px;
+    color: #906c9d;
+
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    display: none;
+}
+.card.twist .alternate:hover .content {
+    display: none;
+}
+.card.twist .alternate:hover .twister {
+    display: block;
+}
+.card.twist .alternate select .eventer {
+    display: none;
+}
+
+
+.card.twist .type .content {
+    color: #906c9d;
+}
+.card.twist .plate.bottom .shape {
+    border-right-color: #906c9d;
+}
+.card.twist .plate.bottom .polygon {
+    background-color: #906c9d;
+}
+.card.twist .symbol .img {
+    background-image: url("../images/corner/twist.png");
+}
+
+
+/* Styling for back of card. */
+.card.twist.back .bg {
+    background-image: url("../images/back/twist.png");
+}
+.card.twist.back .plate.top .shape {
+    border-left-color: #906c9d;
+}
+.card.twist.back .plate.top .polygon {
+    background-color: #906c9d;
+}
+.card.twist.back .stripes .shape {
+    background: #906c9d;
+}
+.card.twist.back .back-text .content {
+    color: #906c9d;
+}
+
+

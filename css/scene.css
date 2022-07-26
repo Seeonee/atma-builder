@@ -1,0 +1,144 @@
+.card.scene .bg {
+    background-image: url("../images/bg/black_high.png");
+}
+
+
+.card.scene .title .content.color-first-letter:not(.editing)::first-letter {
+    color: #df8545;
+}
+
+
+.card.scene .mid-divider, 
+.card.scene .expansion.position {
+    top: 652px;
+}
+.card.scene .main.position {
+    top: 717px; /* +63px from divider. */
+}
+
+
+.card.scene .goalpost.position {
+    top: 1227px;
+    left: 138px;
+}
+.card.scene .goalpost .column {
+    display: flex;
+    flex-direction: column;
+    width: 5px;
+    height: 191px;
+    margin-top: -7px;
+    margin-left: -5px;
+}
+.card.scene .goalpost .diamond {
+    height: 5px;
+    width: 5px;
+    background: #df8545;
+    transform: rotate(45deg) scale(7.2);
+    transform-origin: center;
+}
+.card.scene .goalpost .bar {
+    width: 5px;
+    background: #df8545;
+    flex-grow: 1;
+}
+.card.scene .goalpost .or {
+    position: absolute;
+    top: 72px;
+    left: -16px;
+
+    font-weight: bold;
+    font-variant: small-caps;
+    font-size: 24px;
+    color: #000;
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+
+    transform-origin: top left;
+    -webkit-transform:scale(1.1,1); /* Safari and Chrome */
+    -moz-transform:scale(1.1,1); /* Firefox */
+    -ms-transform:scale(1.1,1); /* IE 9 */
+    -o-transform:scale(1.1,1); /* Opera */
+    transform:scale(1.1,1); /* W3C */
+}
+
+
+.card.scene .goal-label.position {
+    top: 1318px;
+    left: 28px;
+    transform: rotate(-90deg);
+}
+.card.scene .goal-label .content {
+    font-weight: bold;
+    color: #df8545;
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+
+    transform-origin: top left;
+    -webkit-transform:scale(1.5,1.1); /* Safari and Chrome */
+    -moz-transform:scale(1.5,1.1); /* Firefox */
+    -ms-transform:scale(1.5,1.1); /* IE 9 */
+    -o-transform:scale(1.5,1.1); /* Opera */
+    transform:scale(1.5,1.1); /* W3C */
+}
+.card.scene .goal-label .content {
+    font-size: 36px;
+}
+
+
+.card.scene .main.goal.position {
+    left: 170px;
+}
+.card.scene .main.goal.first.position {
+    top: 1217px;
+    width: 600px; /* Rough guess. */
+}
+.card.scene .main.goal.second.position {
+    top: 1321px;
+    width: 560px; /* Rough guess. */
+}
+.card.scene .main.goal .content b, 
+.card.scene .main.goal .content strong {
+    /*font-weight: normal;*/
+    color: #df8545;
+}
+
+
+.card.scene .type .content {
+    color: #df8545;
+}
+.card.scene .plate.bottom .shape {
+    border-right-color: #df8545;
+}
+.card.scene .plate.bottom .polygon {
+    background-color: #df8545;
+}
+.card.scene .symbol .img {
+    background-image: url("../images/corner/scene.png");
+}
+
+
+
+/* Styling for back of card. */
+.card.scene.back .bg {
+    background-image: url("../images/back/scene.png");
+}
+.card.scene.back .plate.top .shape {
+    border-left-color: #df8545;
+}
+.card.scene.back .plate.top .polygon {
+    background-color: #df8545;
+}
+.card.scene.back .stripes .shape {
+    background: #df8545;
+}
+.card.scene.back .back-text .content {
+    color: #df8545;
+}
+
+

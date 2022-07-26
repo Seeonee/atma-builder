@@ -1,0 +1,122 @@
+.card .healthbar.position {
+    top: 1375px;
+    left: 117px;
+    z-index: 1;
+}
+.card .healthbar .content {
+    font-weight: bold;
+    color: transparent;
+    position: relative;
+    left: -35px;
+
+    margin: -20px 0 0 10px;
+
+    transform-origin: left;
+    -webkit-transform:scale(2, 1); /* Safari and Chrome */
+    -moz-transform:scale(2, 1); /* Firefox */
+    -ms-transform:scale(2, 1); /* IE 9 */
+    -o-transform:scale(2, 1); /* Opera */
+    transform:scale(2, 1); /* W3C */
+}
+.card .healthbar .content {
+    font-size: 48px;
+}
+.card .healthbar .content.editing {
+    color: #d7162f;
+}
+/* General heart; this has a left tail that can connect to 
+   a previous heart, and a right tail that can end prior 
+   to a gap before a new heart. */
+.card .healthbar .hearts {
+    transition: opacity 0.25s ease-in-out;
+}
+.card .healthbar .hearts.editing {
+    opacity: 0;
+}
+.card .healthbar .heart {
+    position: relative;
+    margin-right: 12px;
+}
+.card .healthbar .heart img {
+    top: -29px;
+    left: -33.5px;
+}
+.card .healthbar .heart .image {
+    position: absolute;
+    display: inline-block;
+    top: -29px;
+    left: -33.5px;
+
+    background-image: url("../images/heart-white.png");
+    background-repeat: no-repeat;
+    width: 67px;
+    height: 67px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+.card .healthbar .left .cap {
+    width: 0;
+    height: 0;
+    border-top: 27px solid transparent;
+    border-right: 27px solid #d7162f;
+    border-bottom: 0px solid transparent;
+}
+.card .healthbar .left .fill {
+    width: 24px;
+    height: 27px;
+    background-color: #d7162f;
+}
+.card .healthbar .left .polygon {
+    display: inline-block;
+    width: 40px;
+    height: 27px;
+    background-color: #d7162f;
+}
+.card .healthbar .anchor {
+    position: relative;
+    display: inline-block;
+    width: 0px;
+    height: 27px;
+}
+.card .healthbar .anchor .left {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    right: 0px;
+}
+.card .healthbar .right .fill {
+    display: inline-block;
+    width: 40px;
+    height: 27px;
+    background-color: #d7162f;
+}
+.card .healthbar .right .cap {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 0px solid transparent;
+    border-left: 27px solid #d7162f;
+    border-bottom: 27px solid transparent;
+}
+.card .healthbar .right .polygon {
+    display: inline-block;
+    width: 67px;
+    height: 27px;
+    background-color: #d7162f;
+    clip-path: polygon(0 0, 100% 0, 40px 100%, 0 100%);
+}
+/* First heart */
+.card .healthbar .heart.new .anchor, 
+.card .healthbar .heart:first-child .anchor {
+    display: none;
+}
+/* New heart after gap */
+.card .healthbar .heart.new {
+    margin-left: 40px;
+}
+.card .healthbar .heart.new .left .fill {
+    width: 19px;
+}
+
+

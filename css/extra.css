@@ -1,0 +1,129 @@
+.card.extra .title .content.color-first-letter:not(.editing)::first-letter {
+    color: #5ca9d9;
+}
+
+
+.card .cost.position {
+    top: 166px;
+    right: 0px;
+}
+.card .cost span {
+    display: inline-block;
+}
+.card .cost .triangle {
+    width: 0;
+    height: 0;
+    border-top: 44px solid transparent;
+    border-right: 44px solid #d7162f;
+    border-bottom: 44px solid transparent;
+}
+.card .cost .square {
+    height: 88px;
+    width: 180px;
+    background-color: #d7162f;
+}
+.card.front .cost .shadow {
+    filter: drop-shadow(0px 0px 10px #000000ff);
+}
+.card .cost .polygon {
+    height: 88px;
+    width: 224px;
+    background-color: #d7162f;
+    clip-path: polygon(0 50%, 44px 0, 100% 0, 100% 100%, 44px 100%);
+}
+.card .cost .value.position {
+    top: 3px;
+    left: 53px;
+}
+.card .cost .value .content {
+    font-weight: bold;
+    color: #0f0;
+    color: #fff;
+
+    transform-origin: right;
+    -webkit-transform:scale(1.043,1.05); /* Safari and Chrome */
+    -moz-transform:scale(1.043,1.05); /* Firefox */
+    -ms-transform:scale(1.043,1.05); /* IE 9 */
+    -o-transform:scale(1.043,1.05); /* Opera */
+    transform:scale(1.043,1.05); /* W3C */
+}
+.card .cost .value .content {
+    font-size: 68px;
+}
+.card .cost .icon.position {
+    top: 8px;
+    left: 100px;
+}
+.card .cost .icon .content {
+    font-family: "ubuntu_atmamedium";
+    font-weight: normal;
+    color: #fff;
+    font-size: 54px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.card.extra .type .content {
+    color: #5ca9d9;
+}
+.card.extra .plate.bottom .shape {
+    border-right-color: #5ca9d9;
+}
+.card.extra .plate.bottom .polygon {
+    background-color: #5ca9d9;
+}
+.card.extra .symbol .img {
+    background-image: url("../images/corner/extra.png");
+}
+
+
+
+/* Styling for star extra. */
+.card.star.extra .symbol .img {
+    background-image: url("../images/corner/star_extra.png");
+}
+
+
+
+/* Styling for back of a regular extra. */
+.card.extra.back .bg {
+    background-image: url("../images/bg/white.png");
+}
+.card.extra.back .cost.tag {
+    display: none;
+}
+.card.extra.back .mid-divider .bar, 
+.card.extra.back .mid-divider .side .tag .shape {
+    background: #000;
+}
+.card.extra.back .expansion .content, 
+.card.extra.back .main .content {
+    color: #000;
+}
+.card.extra.back .healthbar .heart .image {
+    /*background-image: url("../images/heart-black.png");*/
+    filter: brightness(0) saturate(100%); /* Tint the white heart black. */
+    /* To tint an image white, also add this to the above filter: invert(100%)*/
+}
+.card.extra.back .plate.bottom .shape {
+    border-right-color: #000;
+}
+.card.extra.back .plate.bottom .polygon {
+    background-color: #000;
+}
+.card.extra.back .symbol .img {
+    background-image: url("../images/corner/extra_back.png");
+}
+
+
+
+/* Styling for back of a star extra. */
+.card.star.extra.back .symbol .img {
+    background-image: url("../images/corner/star_extra_back.png");
+}
+
+

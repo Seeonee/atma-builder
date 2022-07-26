@@ -1,0 +1,621 @@
+body {
+    margin: 0px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+/* Overall styling for base card element. */
+.card {
+    position: relative;
+    width: 898px;
+    height: 1488px;
+    
+    overflow: hidden;
+}
+.card.back:not(.extra):not(.star) {
+    /* Used to need to comment this next line out for transparent exports. */
+    /* Now only opaque (non-extra) card backs have a white fill. */
+    background: #fff;
+}
+/* Shrink for easier editing. */
+.card-holder.shrink {
+    transform: scale(0.5);
+    transform-origin: top left;
+    /* Remove these if they mess up multicard later. */
+    width: 449px;
+    height: 744px;
+}
+.card-holder.crafter {
+    transform: scaleX(1.002227) scaleY(1.008065);
+    transform-origin: top left;
+    width: auto;
+    height: auto;
+}
+.outer-holder.crafter {
+    width: 900px;
+    height: 1500px;
+    overflow: hidden;
+}
+.card-holder.mask-rounded .card {
+    -webkit-mask-image: url("../images/mask_rounded.png");
+    mask-image: url("../images/mask_rounded.png");
+}
+.card-holder.mask-square .card {
+    -webkit-mask-image: url("../images/mask_square.png");
+    mask-image: url("../images/mask_square.png");
+}
+
+.body-masked, 
+.body-masked {
+    overflow: hidden;
+    margin: -36px;
+    width: calc(898px - 36px);
+    height: calc(1488px - 36px);
+}
+.body-masked-shrink, 
+.body-masked-shrink {
+    overflow: hidden;
+    margin: -18px;
+    width: calc(449px - 18px);
+    height: calc(744px - 18px);
+}
+
+
+/* Background image. */
+.card .bg {
+    position: absolute;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+
+    background-image: url("../images/bg/black.png"); /* Some cards may change this. */
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+
+    pointer-events: none;
+}
+
+
+/* Art. */
+.card .art {
+    position: absolute;
+    width: 100%;
+}
+.card .art img {
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.card .hidden-field {
+    left: 100px;
+    z-index: 1;
+}
+.card.player.character.back .hidden-field {
+    z-index: 2;
+}
+.card .hidden-field .content:before {
+    font-weight: bold;
+}
+.card .hidden-field .content {
+    opacity: 0;
+    overflow: hidden;
+    padding: 3px;
+    width: 50px;
+    white-space: nowrap;
+    font-size: 24px;
+}
+.card .hidden-field .content:hover, 
+.card .hidden-field .content.editing, 
+.comments-always .card .hidden-field.comment .content {
+    opacity: 1;
+    width: auto;
+    max-width: 560px;
+    background: #fff;
+    white-space: normal;
+}
+
+.card .art-url {
+    /*display: none;*/
+    top: 200px;
+}
+.card.player.character.back .art-url {
+    top: 80px;
+}
+.card .art-url .content:before {
+    content: "Art: ";
+}
+
+.card .comment {
+    top: 250px;
+}
+.card .comment .content {
+    width: 125px;
+}
+.card .comment .content:before {
+    content: "Comments:\A";
+    white-space: pre;
+}
+
+
+/* General stylings for a few commonly used elements. */
+.card img {
+    position: absolute;
+}
+.card .position {
+    position: absolute;
+}
+.card .content {
+    display: inline-block;
+}
+
+
+/* Top left and bottom right corner "plates." */
+.card .plate {
+    pointer-events: none;
+}
+.card .plate.top.position {
+    /* We want it at (0,0) */
+}
+.card .plate.top .shape {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 0px solid transparent;
+    border-left: 244px solid #000;
+    border-bottom: 244px solid transparent;
+}
+.card .plate.top .polygon {
+    display: block;
+    width: 244px;
+    height: 244px;
+    background-color: #000;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+.card .plate.bottom.position {
+    bottom: 0px;
+    right: 0px;
+}
+.card .plate.bottom .shape {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 240px solid transparent;
+    border-right: 240px solid #f00;
+    border-bottom: 0px solid transparent;
+}
+.card .plate.bottom .polygon {
+    display: block;
+    width: 244px;
+    height: 244px;
+    background-color: #f00;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+
+
+/* Title styling. Cards should individually color the first letter. */
+.card .title.position {
+    top: 62px;
+    left: 75px;
+    width: 625px;
+}
+.card .title.large.position {
+    top: 60px;
+    left: 75px;
+}
+.card .title .content {
+    font-weight: bold;
+    /*font-kerning: none;*/
+    color: #fff;
+    text-shadow: 7px 8px 11px rgba(0, 0, 0, 0.8);
+
+    transform-origin: left;
+    -webkit-transform:scale(1.205,1); /* Safari and Chrome */
+    -moz-transform:scale(1.205,1); /* Firefox */
+    -ms-transform:scale(1.205,1); /* IE 9 */
+    -o-transform:scale(1.205,1); /* Opera */
+    transform:scale(1.205,1); /* W3C */
+}
+.card .title .content {
+    font-size: 54px;
+}
+.card .title.large .content {
+    font-size: 68px;
+}
+.card .title .content.color-first-letter:not(.editing)::first-letter {
+    color: #999;
+    margin-right: 0em;
+}
+/* Subtitle. */
+.card .subtitle.position {
+    top: 133px;
+    left: 95px;
+}
+.card .subtitle .content {
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 7px 8px 11px rgba(0, 0, 0, 0.8);
+
+    transform-origin: left;
+    -webkit-transform:scale(1.043,1.05); /* Safari and Chrome */
+    -moz-transform:scale(1.043,1.05); /* Firefox */
+    -ms-transform:scale(1.043,1.05); /* IE 9 */
+    -o-transform:scale(1.043,1.05); /* Opera */
+    transform:scale(1.043,1.05); /* W3C */
+}
+.card .subtitle .content {
+    font-size: 36px;
+}
+
+
+/* Mid-card horizontal dividers. */
+.card .mid-divider, 
+.card .expansion.position {
+    top: 694px;
+}
+.card .mid-divider {
+    position: absolute;
+    width: 100%;
+    transition: opacity 0.25s ease-in-out;
+}
+.card .mid-divider.editing {
+    opacity: 0;
+}
+.card .mid-divider .side {
+    position: relative;
+    display: flex;
+    height: 30px;
+}
+.card .mid-divider .side.left {
+    float: left;
+    width: 544px;
+    flex-direction: row-reverse;
+}
+.card .mid-divider .side.right {
+    float: right;
+    width: 144px;
+}
+.card .mid-divider .bar {
+    display: block;
+    flex-grow: 1;
+    height: 5px;
+    margin-top: 13px;
+
+    background: #fff;
+}
+.card .mid-divider .tag {
+    position: relative;
+    display: inline-block;
+    height: 30px;
+
+    width: 40px;
+}
+.card .mid-divider .side.right .tag {
+    margin-left: 16px;
+}
+.card .mid-divider .side.left .tag {
+    margin-right: 16px;
+}
+.card .mid-divider .side .tag .shape {
+    display: block;
+    position: absolute;
+    height: 12px;
+    width: 13px;
+
+    transform: skew(-45deg, 0);
+    background: #fff;
+}
+.card .mid-divider .side.left .tag .shape {
+    top: 6px;
+    left: -4px;
+}
+.card .mid-divider .side.right .tag .shape {
+    top: 13px;
+    right: -4px;
+}
+.card .expansion.position {
+    top: 694px;
+    right: 144px;
+    text-align: right;
+}
+/* And the expansion text hiding between them. */
+.card .expansion.position {
+    right: 144px;
+    text-align: right;
+}
+.card .expansion .content {
+    font-weight: bold;
+    color: #fff;
+
+    transform-origin: right;
+    -webkit-transform:scale(1.34,1); /* Safari and Chrome */
+    -moz-transform:scale(1.34,1); /* Firefox */
+    -ms-transform:scale(1.34,1); /* IE 9 */
+    -o-transform:scale(1.34,1); /* Opera */
+    transform:scale(1.34,1); /* W3C */
+}
+.card .expansion .content {
+    font-size: 26px;
+}
+
+
+/* Text field styling & properties. */
+/* Uppercase. */
+.card .content.uppercase {
+    text-transform: uppercase
+}
+/* Bolding. */
+.card .content.boldable {
+    /*Pass*/
+}
+/* Italicization. */
+.card .content.italicizable {
+    /*Pass*/
+}
+/* Indendation. */
+.card .content.indentable blockquote {
+    margin: 0 0 0 60px;
+    border: none;
+    padding: 0px;
+}
+.card .content.indentable blockquote:before {
+    font-family: "ubuntu_atmamedium";
+    font-weight: normal;
+    font-style: normal;
+    color: #00f;
+    margin: 0 8px 0 -36px;
+}
+.card .content.indentable blockquote.gm-cost-1:before {
+    content: "{";
+    color: #d7162f;
+}
+.card .content.indentable blockquote.gm-cost-2:before {
+    content: "{{";
+    color: #d7162f;
+}
+.card .content.indentable blockquote.gm-cost-free:before {
+    content: "}";
+    color: #959c9d;
+}
+.card .content.indentable blockquote.bullet:before {
+    content: "|";
+    color: #959c9d;
+}
+.card div.br { /*Used for "shift+enter" double-high newlines.*/
+    margin-top: 23px;
+}
+.card .content.indentable .gm-symbol {
+    font-family: "ubuntu_atmamedium";
+    font-style: normal; 
+    font-weight: normal; 
+    font-variant: normal; 
+    color: #d7162f;
+}
+
+
+/* Main text field; every card has this. */
+.card .main.position {
+    top: 757px; /* Individual cards may change this; it should be +63px from divider. */
+    left: 87px;
+    width: 694.02px;
+}
+.skip-linewrap-fix .card .main.position {
+    width: 694px; /* (Image width - 2x left) / (x-scale) */
+}
+.card .main .content {
+    line-height: 1.2;
+    color: #fff;
+
+    transform-origin: top left;
+    -webkit-transform:scale(1.043,1.048); /* Safari and Chrome */
+    -moz-transform:scale(1.043,1.048); /* Firefox */
+    -ms-transform:scale(1.043,1.048); /* IE 9 */
+    -o-transform:scale(1.043,1.048); /* Opera */
+    transform:scale(1.043,1.048); /* W3C */
+}
+.card .main .content {
+    font-size: 36px;
+}
+.card .main .content i,
+.card .main .content em {
+    color: #959c9d;
+}
+.card .content u {
+    text-decoration-color: transparent;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.highlight-bold .card .content b {
+    background: #f00;
+}
+.highlight-italic .card .content i {
+    background: #0f0;
+}
+.highlight-italic .card .content b i, 
+.highlight-italic .card .content i b {
+    background: #ff0;
+}
+.highlight-underline .card .content u {
+    background: #00f;
+}
+
+
+/* Bottom right corner text indicating card type. */
+.card .type.position {
+    top: 1332px;
+    left: 631px;
+    width: 250px;
+    text-align: center;
+    transform: rotate(-45deg);
+    pointer-events: none;
+}
+.card .type .content {
+    font-weight: bold;
+    color: #fff;
+
+    transform-origin: center;
+    -webkit-transform:scale(1.34,1); /* Safari and Chrome */
+    -moz-transform:scale(1.34,1); /* Firefox */
+    -ms-transform:scale(1.34,1); /* IE 9 */
+    -o-transform:scale(1.34,1); /* Opera */
+    transform:scale(1.34,1); /* W3C */
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+.card .type .content {
+    font-size: 26px;
+}
+/* Icon as well. */
+.card .symbol.position {
+    bottom: 0px;
+    right: 0px;
+    pointer-events: none;
+}
+.card .symbol .img {
+    height: 271px;
+    width: 258px;
+    display: inline-block;
+}
+
+
+/* Overlay frame. */
+.card img.bleedframe {
+    pointer-events: none;
+}
+.no-frame .card img.bleedframe {
+    display: none;
+}
+
+
+
+/* Reused stylings for various card backs. */
+.card.back .stripes.position {
+    bottom: 850px;
+    left: -312px;
+    transform-origin: top left;
+    transform: rotate(45deg);
+}
+.card.back .stripes .shape {
+    position: absolute;
+    display: inline-block;
+}
+.card.back .stripes .shape.upper {
+    left: -27px;
+    bottom: 235px;
+    width: 232px;
+    height: 875px;
+}
+.card.back .stripes .shape.lower {
+    left: 395px;
+    bottom: -15px;
+    width: 61.5px;
+    height: 1325px;
+}
+.card.twist.back .stripes .shape.lower, 
+.card.prop.back .stripes .shape.lower {
+    height: 984px;
+}
+
+.card.twist.back .cost .value .content, 
+.card.prop.back .cost .value .content {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.card.back .back-text.position {
+    top: 1050px;
+    width: 100%;
+    text-align: center;
+}
+.card.back .back-text .content {
+    font-size: 74px;
+    font-weight: bold;
+    color: #948e7f;
+
+    transform-origin: center;
+    -webkit-transform:scale(1.23,1); /* Safari and Chrome */
+    -moz-transform:scale(1.23,1); /* Firefox */
+    -ms-transform:scale(1.23,1); /* IE 9 */
+    -o-transform:scale(1.23,1); /* Opera */
+    transform:scale(1.23,1); /* W3C */
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+
+.highlight-newlines .card .main .content br {
+    display: block;
+    background: #f00;
+    width: 50px;
+    height: 20px;
+    content: " ";
+}
+
+
+/* Handle spacing for bottom right corner. */
+.card .main .content {
+    display: block;
+}
+.card .main .content.editing {
+    display: inline-block;
+}
+.card .main.position .spacer {
+    --w: 85px;
+    float: right;
+    width: var(--w);
+    height: var(--h);
+    shape-outside: polygon(100% 0, 100% 100%, 0 100%, 100% calc(var(--h) - var(--w)), 100% 0);
+}
+.card .main.position .spacer {
+    --h: 565px;
+}
+.card.story .main.position .spacer, 
+.card.scene .main.position .spacer {
+    --h: 631px;
+}
+.card.character.front .main.position .spacer {
+    --h: 384px;
+}
+.card.player.back .main.position .spacer {
+    --h: 745px;
+}
+.card.story .main.goal.position .spacer {
+    --h: calc(191px - var(--w));
+}
+.card.scene .main.goal.first.position .spacer {
+    --h: calc(218px - var(--w));
+}
+.card.scene .main.goal.second.position .spacer {
+    --h: calc(154px - var(--w));
+}
+.card .main.editing .spacer {
+    display: none;
+}
+
+
+
+.playtest {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    overflow: hidden;
+}
+.playtest .word {
+    position: absolute;
+    color: #f004;
+    font-size: 270px;
+    text-transform: uppercase;
+    transform: rotate(-60deg);
+    left: -175px;
+    top: 610px;
+}

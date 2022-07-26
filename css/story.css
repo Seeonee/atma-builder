@@ -1,0 +1,112 @@
+.card.story .bg {
+    background-image: url("../images/bg/black_high.png");
+}
+
+
+.card.story .title .content.color-first-letter:not(.editing)::first-letter {
+    color: #61b36a;
+}
+
+
+.card.story .mid-divider, 
+.card.story .expansion.position {
+    top: 652px;
+}
+.card.story .main.position {
+    top: 717px; /* +63px from divider. */
+}
+
+
+.card.story .goalpost.position, 
+.card.story .goal-label.position {
+    top: 1227px;
+    left: 138px;
+}
+.card.story .goalpost .column {
+    display: flex;
+    flex-direction: column;
+    width: 5px;
+    height: 142px;
+    margin-top: 42px;
+    margin-left: -38px;
+}
+.card.story .goalpost .diamond {
+    height: 5px;
+    width: 5px;
+    background: #61b36a;
+    transform: rotate(45deg) scale(7.2);
+    transform-origin: center;
+}
+.card.story .goalpost .bar {
+    width: 5px;
+    background: #61b36a;
+    flex-grow: 1;
+}
+
+
+.card.story .goal-label .content {
+    font-weight: bold;
+    color: #61b36a;
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+
+    transform-origin: top left;
+    -webkit-transform:scale(1.5,1.1); /* Safari and Chrome */
+    -moz-transform:scale(1.5,1.1); /* Firefox */
+    -ms-transform:scale(1.5,1.1); /* IE 9 */
+    -o-transform:scale(1.5,1.1); /* Opera */
+    transform:scale(1.5,1.1); /* W3C */
+}
+.card.story .goal-label .content {
+    font-size: 36px;
+}
+
+
+.card.story .main.goal.position {
+    top: 1276px;
+    left: 137px;
+    width: 600px; /* Rough guess. */
+}
+.card.story .main.goal .content b, 
+.card.story .main.goal .content strong {
+    /*font-weight: normal;*/
+    color: #61b36a;
+}
+
+
+.card.story .type .content {
+    color: #61b36a;
+}
+.card.story .plate.bottom .shape {
+    border-right-color: #61b36a;
+}
+.card.story .plate.bottom .polygon {
+    background-color: #61b36a;
+}
+.card.story .symbol .img {
+    background-image: url("../images/corner/story.png");
+}
+
+
+
+/* Styling for back of card. */
+.card.story.back .bg {
+    background-image: url("../images/back/story.png");
+}
+.card.story.back .plate.top .shape {
+    border-left-color: #61b36a;
+}
+.card.story.back .plate.top .polygon {
+    background-color: #61b36a;
+}
+.card.story.back .stripes .shape {
+    background: #61b36a;
+}
+.card.story.back .back-text .content {
+    color: #61b36a;
+}
+
+

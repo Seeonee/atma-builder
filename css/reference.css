@@ -1,0 +1,372 @@
+.card.reference, 
+.card.players.reference.back {
+    background: #000;
+}
+.card.reference .art, 
+.card.reference .bg {
+    display: none;
+}
+
+.card.reference .plate.top .polygon {
+    background-color: #fff;
+}
+
+/*.card.reference .title .content.color-first-letter:not(.editing)::first-letter, */
+.card.reference .type .content {
+    color: #fff;
+}
+.card.reference .title.position {
+    left: unset;
+    right: 0px;
+}
+.card.reference .title .content {
+    text-shadow: none;
+    color: #fff;
+}
+.card.reference .plate.bottom .polygon {
+    background-color: #fff;
+}
+
+
+.card.reference.players.front .main .content {
+    margin-left: 80px;
+}
+.card.reference.players.front .main .img {
+    position: absolute;
+    top: -15px;
+    left: -40px;
+    height: 125px;
+    width: 125px;
+}
+.card.reference.players.front .main.health .img {
+    top: 9px;
+    left: -9px;
+    height: 67px;
+    width: 67px;
+    z-index: 1;
+}
+
+.card.reference.players.back .main .content:not(.move) {
+    margin-left: 40px;
+}
+.card.reference.players.back .main .content.move {
+    font-weight: bold;
+    font-size: 37px;
+}
+
+.card.reference.players .symbol .img {
+    background-image: url(../images/corner/reference.png);
+    filter: brightness(0);
+}
+
+
+
+/* Individual stat parameters. */
+/* Tough. */
+.card.reference.players.front .main.tough.position {
+    top: 180px;
+}
+.card.reference.players.front .tough .img {
+    background-image: url("../images/stats/tough.png");
+}
+.card.reference.players.front .tough u {
+    color: #ba5489;
+}
+/* Calm. */
+.card.reference.players.front .main.calm.position {
+    top: 370px; /* +200 */
+}
+.card.reference.players.front .calm .img {
+    background-image: url("../images/stats/calm.png");
+}
+.card.reference.players.front .calm u {
+    color: #1fa2c1;
+}
+/* Hasty. */
+.card.reference.players.front .main.hasty.position {
+    top: 560px; /* +200 */
+}
+.card.reference.players.front .hasty .img {
+    background-image: url("../images/stats/hasty.png");
+}
+.card.reference.players.front .hasty u {
+    color: #eb9c4d;
+}
+/* Bright. */
+.card.reference.players.front .main.bright.position {
+    top: 750px; /* +200 */
+}
+.card.reference.players.front .bright .img {
+    background-image: url("../images/stats/bright.png");
+}
+.card.reference.players.front .bright u {
+    color: #f4eb6b;
+}
+/* Sly. */
+.card.reference.players.front .main.sly.position {
+    top: 940px; /* +200 */
+}
+.card.reference.players.front .sly .img {
+    background-image: url("../images/stats/sly.png");
+}
+.card.reference.players.front .sly u {
+    color: #6aba92;
+}
+/* Health. */
+.card.reference.players.front .main.health.position {
+    top: 1130px; /* +200 */
+}
+.card.reference.players.front .health .img {
+    background-image: url("../images/heart-red.png");
+}
+.card.reference.players.front .health u {
+    color: #d7162f;
+}
+
+
+
+/* Individual moves. */
+.card.reference.players.back .main.rumble.position {
+    top: 180px;
+}
+.card.reference.players.back .main.barrage.position {
+    top: 390px; /* +210 */
+}
+.card.reference.players.back .main.realize.position {
+    top: 600px; /* +210 */
+}
+.card.reference.players.back .main.coerce.position {
+    top: 850px; /* +210, +40 */
+}
+.card.reference.players.back .main.survive.position {
+    top: 1060px; /* +210 */
+}
+
+.card.reference.players.back u.tough {
+    color: #ba5489;
+}
+.card.reference.players.back u.calm {
+    color: #1fa2c1;
+}
+.card.reference.players.back u.hasty {
+    color: #eb9c4d;
+}
+.card.reference.players.back u.bright {
+    color: #f4eb6b;
+}
+.card.reference.players.back u.sly {
+    color: #6aba92;
+}
+
+.card.reference.players.back .expansion.position {
+    left: 180px;
+    text-align: left;
+}
+.card.reference.players.back .expansion.position .content {
+    font-size: 37px;
+    margin-top: -7px;
+}
+
+
+
+/* Styling for X-card. */
+.card.xcard {
+    --color: #d7162f;
+    background: #000;
+}
+.card.xcard .plate.top .shape {
+    border-left-color: var(--color);
+}
+.card.xcard .plate.top .polygon {
+    background-color: var(--color);
+}
+.card.xcard .art {
+    display: none;
+}
+.card.xcard .type .content {
+    color: #fff;
+}
+.card.xcard .title.position {
+    left: unset;
+    right: 160px;
+    text-align: right;
+}
+.card.xcard .title .content {
+    text-shadow: none;
+    color: #fff;
+}
+.card.xcard.front .main.position {
+    top: 205px;
+}
+
+.card.xcard.front .safety.edit {
+    --color: #ed240c;
+    --icon-y: 0;
+}
+.card.xcard.front .safety.pause {
+    --color: #e3420b;
+    --icon-y: 1;
+}
+.card.xcard.front .safety.rewind {
+    --color: #ed0c9b;
+    --icon-y: 2;
+}
+.card.xcard.front .safety.fast-forward {
+    --color: #d30be3;
+    --icon-y: 2;
+}
+.card.xcard.front .safety.fast-forward .img {
+    transform: scaleX(-1);
+}
+.card.xcard.front .safety-bullets {
+    position: absolute;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 585px;
+    left: 0;
+    width: 100%;
+    height: 660px;
+}
+.card.xcard.front .safety.position {
+    position: relative;
+    --h-prime: 135px;
+    --h: var(--h-prime);
+    --pad-y: 10px;
+    --text-y: 13px;
+    --text-x: 265px;
+    --text-x-pad: 130px;
+    width: 100%;
+    height: var(--h);
+}
+.card.xcard.front .safety-text.position {
+    top: var(--pad-y);
+    left: var(--text-x);
+    padding-top: var(--text-y);
+    width: calc(100% - var(--text-x) - var(--text-x-pad));
+    font-size: 38px;
+    color: #fff;
+}
+.card.xcard.front .safety .shadow {
+    /*filter: drop-shadow(0px 0px 10px #ffffff55);*/
+}
+.card.xcard.front .safety .polygon {
+    --h2: calc(var(--h) / 2);
+    --w2: calc(var(--w) - var(--h2));
+    position: absolute;
+    height: var(--h);
+    width: var(--w);
+    background-color: var(--color);
+    clip-path: polygon(0 0, var(--w2) 0, 100% 50%, var(--w2) 100%, 0 100%);
+}
+.card.xcard.front .safety .icon.polygon {
+    --w: 245px;
+}
+.card.xcard.front .safety .wide.polygon {
+    --h: calc(var(--h-prime) - (2 * var(--pad-y)));
+    --w: 805px;
+    --color: #333;
+    top: var(--pad-y);
+}
+.card.xcard.front .safety .img {
+    position: absolute;
+    --s: 125px;
+    top: calc((var(--h-prime) - var(--s)) / 2);
+    left: 60px;
+    height: var(--s);
+    width: var(--s);
+    background-image: url(../images/safety-icons.png);
+    background-position-y: calc(-1 * var(--icon-y) * var(--s));
+    filter: invert(1);
+}
+
+.card.xcard.front .credit-block {
+    position: absolute;
+    padding-left: 87px;
+    width: 100%;
+}
+.card.xcard.front .credit-block.xcard {
+    bottom: 160px;
+}
+.card.xcard.front .credit-block.scriptchange {
+    bottom: 80px;
+}
+.card.xcard.front .credit.position {
+    bottom: 30px;
+}
+.card.xcard.front .credit .content {
+    /*font-size: 36px;*/
+    font-size: 28px;
+    /*color: #fff;*/
+    color: #aaa;
+}
+.card.xcard.front .link.position {
+    bottom: 0;
+    margin-left: 10px;
+}
+.card.xcard.front .link .content {
+    /*font-size: 28px;*/
+    font-size: 24px;
+    font-family: monospace;
+    color: #aaa;
+}
+
+.card.xcard .plate.bottom .shape {
+    border-right-color: var(--color);
+}
+.card.xcard .plate.bottom .polygon {
+    background-color: var(--color);
+}
+.card.xcard.players .symbol .img {
+    background-image: url(../images/corner/xcard.png);
+}
+
+/* Styling for back of card. */
+.card.xcard.back {
+    --color: #000;
+    background: #d7162f !important;
+}
+.card.xcard.back .bg {
+    background-image: url("../images/back/xcard.png");
+    filter: brightness(0) invert(1);
+}
+.card.xcard.back .stripes .shape {
+    background: var(--color);
+}
+.card.xcard.back .back-text .content {
+    display: none;
+    --color: #fff;
+    color: var(--color);
+}
+.card.xcard.back .safety-insert.position {
+    --h: 740px;
+    --w: 420px;
+    --text-y: 240px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.card.xcard.back .safety-insert .polygon {
+    --y: calc(var(--w) / 2);
+    position: absolute;
+    bottom: 0;
+    height: var(--h);
+    width: var(--w);
+    margin-left: calc(-1 * (var(--w) / 2));
+    background: #000;
+    clip-path: polygon(0 100%, 0 var(--y), 50% 0, 100% var(--y), 100% 100%);
+}
+.card.xcard.back .safety-insert .text-container {
+    --color: #fff;
+    position: absolute;
+
+    bottom: var(--text-y);
+    width: var(--w);
+    margin-left: calc(-1 * (var(--w) / 2));
+
+    font-size: 38px;
+    color: var(--color);
+}
+.card.xcard.back .safety-insert .text-container > .position {
+    position: unset;
+}

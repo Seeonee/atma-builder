@@ -1,0 +1,118 @@
+.low-ink .card.front .bg, 
+.low-ink .card.extra.back .bg, 
+.low-ink .card.player.character.front .bg {
+    background-image: none;
+    background: #fff;
+    bottom: 0px;
+    height: 820px;
+}
+.low-ink .card.story.front .bg, 
+.low-ink .card.scene.front .bg {
+    height: 860px;
+}
+.low-ink .card.player.character.front .bg {
+    height: 650px;
+}
+
+.low-ink .card .title .content,
+.low-ink .card .title .content.color-first-letter:not(.editing)::first-letter,
+.low-ink .card .subtitle .content,
+.low-ink .card .expansion .content,
+.low-ink .card .main .content,
+.low-ink .card .type .content, 
+.low-ink .card.player .main .content:not(.editing) u, 
+.low-ink .card.player.back .content, 
+.low-ink .card .main .content i, 
+.low-ink .card .main .content em {
+    color: #000;
+}
+.low-ink .card .plate.top .polygon {
+    background-color: #fff;
+}
+.low-ink .card .title .content,
+.low-ink .card .subtitle .content {
+    text-shadow: none;
+    background: #fff;
+    /*padding: 0 10px;*/
+}
+.low-ink .card .mid-divider .bar,
+.low-ink .card .mid-divider .tag .shape {
+    background: #000;
+}
+.low-ink .card .healthbar .heart .image {
+    filter: brightness(0);
+}
+.low-ink .card .healthbar .polygon {
+    background-color: #888;
+}
+.low-ink .card.front .plate.bottom .polygon {
+    background-color: #000;
+}
+.low-ink .card.back .plate.bottom .polygon {
+    background-color: #fff;
+}
+
+.low-ink .card.player.front .stat.tag .img, 
+.low-ink .card.player.front .stat.tag .modifier, 
+.low-ink .card.player.front .stat.tag .label {
+    filter: brightness(0) invert(1);
+}
+.low-ink .card.player .main .content:not(.editing) u {
+    color: #000;
+}
+.low-ink .card.player.back .back-divider > * {
+    background: #000;
+}
+
+.low-ink .card .cost .polygon {
+    background: #000;
+}
+
+.low-ink .card.backdrop.back, 
+.low-ink .card.story.back, 
+.low-ink .card.scene.back, 
+.low-ink .card.prop.back, 
+.low-ink .card.twist.back {
+    filter: saturate(0);
+}
+
+.low-ink .card .content.indentable blockquote:before {
+    color: #000;
+}
+.low-ink .card.story .main.goal .content b, 
+.low-ink .card.scene .main.goal .content b {
+    color: #000;
+    text-decoration: underline;
+}
+.low-ink .card .goalpost .or {
+    color: #fff;
+}
+.low-ink .card .goalpost .diamond, 
+.low-ink .card .goalpost .bar {
+    background: #000;
+}
+.low-ink .card .goal-label .content {
+    color: #000;
+}
+
+
+.low-ink .card.reference, 
+.low-ink .card.reference.back {
+    background: #fff;
+}
+.low-ink .card.reference .plate.top .polygon {
+    background-color: #000;
+}
+.low-ink .card.reference.players.front .main .img {
+    filter: brightness(0);
+}
+.low-ink .card.reference.players .main .content u {
+    color: #000;
+}
+.low-ink .card.front.reference.players .symbol .img {
+    filter: brightness(1);
+}
+.low-ink .card.back .symbol .img {
+    filter: brightness(0);
+}
+

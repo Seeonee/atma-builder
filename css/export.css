@@ -1,0 +1,56 @@
+
+.export-picker {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    z-index: 2;
+    font-size: 20px;
+}
+.export-picker:not(.show) {
+    display: none;
+}
+.export-picker .inner {
+    position: absolute;
+    margin: 0 auto;
+    margin: 10px;
+    background: #fff;
+    border: 1px solid #aaa;
+    padding: 20px;
+}
+
+.export-picker .row:not(.loaded) {
+    color: #ccc;
+}
+.export-picker label[for="select-all"] {
+    color: #000;
+    font-weight: bold;
+}
+
+.export-picker .button-row {
+    margin-top: 10px;
+    display: inline-flex;
+}
+.export-picker .button-row .button {
+    margin-right: 15px;
+    cursor: pointer;
+}
+.export-picker .button-row .button.export {
+    color: #69bdae;
+    font-weight: bold;
+}
+.export-picker .button-row .button.cancel {
+    color: #ccc;
+}
+.export-picker .button-row .button.export::after {
+    content: "Export";
+}
+.export-picker.loading .button-row .button.export::after {
+    content: "Loading";
+}
+.export-picker .button-row .button.cancel::after {
+    content: "Cancel";
+}
+

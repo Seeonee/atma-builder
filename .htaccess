@@ -1,0 +1,15 @@
+# Header Set Access-Control-Allow-Origin "*"
+# Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
+
+# <IfModule mod_headers.c>
+#     Header Set Access-Control-Allow-Origin "*"
+# </IfModule>
+
+# <IfModule mod_setenvif.c>
+#   <IfModule mod_headers.c>
+#     <FilesMatch "\.(bmp|cur|gif|ico|jpe?g|png|svgz?|webp)$">
+#       SetEnvIf Origin ":" IS_CORS
+#       Header set Access-Control-Allow-Origin "*" env=IS_CORS
+#     </FilesMatch>
+#   </IfModule>
+# </IfModule>

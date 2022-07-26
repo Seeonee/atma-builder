@@ -1,0 +1,37 @@
+.card.prop .title .content.color-first-letter:not(.editing)::first-letter {
+    color: #948e7f;
+}
+
+
+.card.prop .type .content {
+    color: #948e7f;
+}
+.card.prop .plate.bottom .shape {
+    border-right-color: #948e7f;
+}
+.card.prop .plate.bottom .polygon {
+    background-color: #948e7f;
+}
+.card.prop .symbol .img {
+    background-image: url("../images/corner/prop.png");
+}
+
+
+/* Styling for back of card. */
+.card.prop.back .bg {
+    background-image: url("../images/back/prop.png");
+}
+.card.prop.back .plate.top .shape {
+    border-left-color: #948e7f;
+}
+.card.prop.back .plate.top .polygon {
+    background-color: #948e7f;
+}
+.card.prop.back .stripes .shape {
+    background: #948e7f;
+}
+.card.prop.back .back-text .content {
+    color: #948e7f;
+}
+
+

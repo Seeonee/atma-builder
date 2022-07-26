@@ -1,0 +1,38 @@
+.card.backdrop .title .content.color-first-letter:not(.editing)::first-letter {
+    color: #69bdae;
+}
+
+
+.card.backdrop .type .content {
+    color: #69bdae;
+}
+.card.backdrop .plate.bottom .shape {
+    border-right-color: #69bdae;
+}
+.card.backdrop .plate.bottom .polygon {
+    background-color: #69bdae;
+}
+.card.backdrop .symbol .img {
+    background-image: url("../images/corner/backdrop.png");
+}
+
+
+
+/* Styling for back of card. */
+.card.backdrop.back .bg {
+    background-image: url("../images/back/backdrop.png");
+}
+.card.backdrop.back .plate.top .shape {
+    border-left-color: #69bdae;
+}
+.card.backdrop.back .plate.top .polygon {
+    background-color: #69bdae;
+}
+.card.backdrop.back .stripes .shape {
+    background: #69bdae;
+}
+.card.backdrop.back .back-text .content {
+    color: #69bdae;
+}
+
+
