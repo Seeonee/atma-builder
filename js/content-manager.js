@@ -173,6 +173,7 @@ jQuery(document).ready(function ($) {
     }
 
     contentManager = new ContentManager();
+    // contentManager.db = localDatabase;
 
  
 });
