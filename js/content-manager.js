@@ -22,11 +22,12 @@ jQuery(document).ready(function ($) {
             this.standalone = null;
             this.changes = false;
             this.outstanding = 0;
+            this.db = dbManager; // By default, use Google Sheet as database.
         }
 
         // Public method for initializing a new (empty) creation.
         create(type, name, counts, receiver=console.log) {
-            db_create(type, name, counts, (status, data) => {
+            this.db.create(type, name, counts, (status, data) => {
                 if (status == 'success') {
                     var creation = {};
                     for(var k in counts) {
@@ -48,7 +49,7 @@ jQuery(document).ready(function ($) {
             if (this.lookedUp) {
                 this._list(type, receiver);
             } else {
-                db_list((status, data) => {
+                this.db.list((status, data) => {
                     if (status == 'success') {
                         data.forEach(function(value) {
                             this.stores[value.type][value.name] = undefined;
@@ -78,7 +79,7 @@ jQuery(document).ready(function ($) {
                 if (name in store) {
                     var entity = store[name];
                     if (entity == undefined) {
-                        db_query(type, name, (status, data) => {
+                        this.db.query(type, name, (status, data) => {
                             if (status == 'success') {
                                 data.forEach((card) => {
                                     card['_changed'] = false;
@@ -154,7 +155,7 @@ jQuery(document).ready(function ($) {
                         }
                     });
                     this.outstanding += 1;
-                    db_update(type, name, items, (status, data) => {
+                    this.db.update(type, name, items, (status, data) => {
                         this.outstanding -= 1;
                         if (this.outstanding == 0) {
                             document.title = document.title.match(/[^*].*$/);
