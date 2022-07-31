@@ -95,7 +95,7 @@ jQuery(document).ready(function ($) {
 
         _makeArt() {
             var art = $('<span class="art">');
-            var img = $('<img crossorigin="anonymous">');
+            var img = $('<img>');
             img.on('load', function(e) { $(this).show(); });
             img.on('error', function(e) { $(this).hide(); });
             img.appendTo(art);
