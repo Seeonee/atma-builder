@@ -115,7 +115,7 @@ jQuery(document).ready(function ($) {
         var showStatus = function(s) {
             status.text(s);
             status.clearQueue();
-            status.animate({opacity: '1'}, 350).delay(750).animate({opacity: '0'}, 350);
+            status.stop().animate({opacity: '1'}, 350).delay(2750).animate({opacity: '0'}, 350);
         };
 
         var input = form.find('input');
@@ -423,6 +423,7 @@ jQuery(document).ready(function ($) {
                     showStatus('Saved');
                     dbManager.set(url);
                     contentManager.clear();
+                    contentManager.db = dbManager; // Switch to remote database.
                     clearLoadedCard(); // Clear currently loaded card.
                     loadCreations(true); // Reinitialize content.
                 } else {
@@ -432,6 +433,7 @@ jQuery(document).ready(function ($) {
             function() {
                 dbManager.clear();
                 contentManager.clear();
+                contentManager.db = localDatabase; // Switch to local database.
                 clearLoadedCard(); // Clear currently loaded card.
                 loadCreations(true); // Reinitialize content.
             }).appendTo(url);
@@ -475,7 +477,7 @@ jQuery(document).ready(function ($) {
                         showStatus('Request submitted');
                         contentManager.create(type, name, COUNTS[type], (status, data) => {
                             showStatus(status == 'success' ? 
-                                name + ' created' : 
+                                name + ' created; refresh to see it' : 
                                 'Creation failed: ' + data);
                         });
                     } else {
