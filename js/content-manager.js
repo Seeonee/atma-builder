@@ -14,6 +14,13 @@ jQuery(document).ready(function ($) {
     // Manages the locally loaded content.
     class ContentManager {
         constructor() {
+            this.db = dbManager; // By default, use Google Sheet as database.
+            this.outstanding = 0;
+            this.clear();
+        }
+
+        // Reset our cached content.
+        clear() {
             this.lookedUp = false;
             this.stores = {
                 'set': {}, 
@@ -21,8 +28,6 @@ jQuery(document).ready(function ($) {
             };
             this.standalone = null;
             this.changes = false;
-            this.outstanding = 0;
-            this.db = dbManager; // By default, use Google Sheet as database.
         }
 
         // Public method for initializing a new (empty) creation.

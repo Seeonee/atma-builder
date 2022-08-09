@@ -205,6 +205,13 @@ jQuery(document).ready(function ($) {
         }
     }
 
+    clearLoadedCard = function() {
+        $('.card-holder').empty();
+        var url = window.location.protocol + '//' + window.location.host + 
+            window.location.pathname + '?';
+        window.history.pushState({path: url}, '', url);
+    }
+
     populateCreation = function(type, name, data) {
         var parent = $('.menu-main .creations .{0}#{1} .contents'.format(type, clean(name)));
         parent.empty();
@@ -413,14 +420,20 @@ jQuery(document).ready(function ($) {
             function(value, showStatus) {
                 var url = value.trim();
                 if (url.match('^https://script.google.com/macros/s/[a-zA-Z0-9_-]+/exec$')) {
-                    dbManager.set(url);
                     showStatus('Saved');
+                    dbManager.set(url);
+                    contentManager.clear();
+                    clearLoadedCard(); // Clear currently loaded card.
+                    loadCreations(true); // Reinitialize content.
                 } else {
                     showStatus('Bad URL');
                 }
             }, 
             function() {
                 dbManager.clear();
+                contentManager.clear();
+                clearLoadedCard(); // Clear currently loaded card.
+                loadCreations(true); // Reinitialize content.
             }).appendTo(url);
 
         var image = createItem('Art Root', 'art-root', item);

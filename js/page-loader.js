@@ -50,7 +50,7 @@ jQuery(document).ready(function ($) {
         setLoadedCard(entityType, entityName, cardType, cardNum, side);
     }
 
-    var loadCreations = function(initialize=false) {
+    loadCreations = function(initialize=false) {
         var params = new URLSearchParams(window.location.search);
         if (params.has('export')) {
             loadFromSnap(params.get('export'));
@@ -68,6 +68,9 @@ jQuery(document).ready(function ($) {
         }
 
         if (initialize) {
+            ['sets', 'chars'].forEach(type => {
+                $(`.menu-main .creations .${type} .contents>:not(.description)`).remove();
+            });
             contentManager.list('set', (status, data) => {
                 if (status == 'success') {
                     let keys = Object.keys(data).reverse();

@@ -25,6 +25,7 @@ jQuery(document).ready(function ($) {
 
         clear() {
             window.localStorage.removeItem('db');
+            this.url = undefined;
         }
 
         post(data, callback=console.log) {
