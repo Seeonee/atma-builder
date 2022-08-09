@@ -684,7 +684,7 @@ jQuery(document).ready(function ($) {
 
     var createControls = function(parent) {
         var list = {
-            'ctrl+shift+S': 'Save local changes to the linked Google Sheet.', 
+            'ctrl+shift+S': 'Save local changes to the database.', 
             'ctrl+B': 'Bold the highlighted text.', 
             'ctrl+I': 'Italicize the highlighted text.', 
             'ctrl+U': 'Transform the highlighted text into small caps.', 
@@ -738,9 +738,17 @@ jQuery(document).ready(function ($) {
             $('<img src="images/menu/help/{0}.gif">'.format(img)).appendTo(gif);
         }
 
-        var copy = createItem('Google Sheet', 'copy-sheet', item);
-        $('<span class="description">Click <a href="copy-db.html" target="_blank">here</a>' + 
-            ' for help setting up a personal Google Sheet.</span>').appendTo(copy);
+        var saving = createItem('Saving Data', 'saving-data', item);
+        $('<p>By default, your creations are saved in browser local storage. You can ' + 
+            'save via the ◔ button in the menu tray, or the <b>ctrl+S</b> shortcut key.</p>').appendTo(saving);
+        $('<p>If you want to collaborate on your data with other users or ' + 
+            'from other devices, you can set up a Google Sheet instead of using ' + 
+            'browser local storage.</p>').appendTo(saving);
+        $('<p>Specify the sheet URL in Externals > Google Sheet; doing so will ' + 
+            'disable local data. Clear the URL if you want to switch back to using ' + 
+            'local data.</p>').appendTo(saving);
+        $('<p>Click <a href="copy-db.html" target="_blank">here</a>' + 
+            ' for help setting up the Google Sheet.</p>').appendTo(saving);
 
         var root = createItem('Art Root', 'art-root', item);
         $('<p>An art root is a web URL under which card art is stored in a predefined layout. ' + 
