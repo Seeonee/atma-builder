@@ -74,6 +74,31 @@ jQuery(document).ready(function ($) {
             this.success(callback, [id]);
         }
 
+        // Delete a set/character.
+        // type: 'set' or 'char'
+        // name: the name of the entity to look up
+        // callback: will be passed the response object
+        delete(type, name, callback) {
+            if (!ENTITY_TYPES.includes(type)) {
+                this.error(callback, `Unsupported query type: ${type}`);
+                return;
+            }
+            let clean_name = clean(name);
+            for (let i = 0; i < this.data.index.length; i++) {
+                let entity = this.data.index[i];
+                if (entity.type == type && clean(entity.name) == clean_name) {
+                    this.data.index.splice(i, 1);
+                    break;
+                }
+            }
+            let id = `${type}-${clean_name}`;
+            if (this.data[id] != undefined) {
+                delete this.data[id];
+            }
+            this.save();
+            this.success(callback, [id]);
+        }
+
         // Query the data for a specific set/character.
         // type: 'set' or 'char'
         // name: the name of the entity to look up
