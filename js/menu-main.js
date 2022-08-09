@@ -488,6 +488,32 @@ jQuery(document).ready(function ($) {
                 }
             }, undefined).appendTo(add);
 
+        var deletion = createItem('Delete', 'delete-creation', item);
+        $('<span class="description">Delete an existing set or character by name.</span>').appendTo(deletion);
+        createForm('Name', 'creation-name', 'set: <name> / char: <name>', '', 
+            function(value, showStatus) {
+                try {
+                    var pieces = value.trim().split(':');
+                    var type = pieces[0].trim().toLowerCase();
+                    if (type == 'character') {
+                        type = 'char';
+                    }
+                    if (['set', 'char'].includes(type)) {
+                        var name = pieces[1].trim();
+                        showStatus('Request submitted');
+                        contentManager.delete(type, name, (status, data) => {
+                            showStatus(status == 'success' ? 
+                                name + ' deleted; refresh the page' : 
+                                'Deletion failed: ' + data);
+                        });
+                    } else {
+                        showStatus('Invalid type');
+                    }
+                } catch (error) {
+                    showStatus('Bad value');
+                }
+            }, undefined).appendTo(deletion);
+
         var export_all = createItem('Export', 'export-all', item);
         $('<span class="description">Export multiple items at a time.</span>').appendTo(export_all);
         let exporter = $('<div class="export">Export</div>').appendTo(export_all);

@@ -35,12 +35,22 @@ jQuery(document).ready(function ($) {
             this.db.create(type, name, counts, (status, data) => {
                 if (status == 'success') {
                     var creation = {};
-                    for(var k in counts) {
+                    for (var k in counts) {
                         for (var i = 0; i < counts[k]; i++) {
                             creation[k + '_' + i] = {};
                         }
                     }
                     this.stores[type][name] = creation;
+                }
+                receiver(status, data);
+            });
+        }
+
+        // Public method for deleting a creation.
+        delete(type, name, receiver=console.log) {
+            this.db.delete(type, name, (status, data) => {
+                if (status == 'success') {
+                    delete this.stores[type][name];
                 }
                 receiver(status, data);
             });

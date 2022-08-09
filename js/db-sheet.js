@@ -55,7 +55,7 @@ jQuery(document).ready(function ($) {
 
         // Create a new set/character.
         // type: 'set' or 'char'
-        // name: the name of the entity to look up
+        // name: the name of the entity to create
         // counts: map of card types to integer quantities, e.g. {'twist': 12}
         // callback: will be passed the response object
         create(type, name, counts, callback) {
@@ -64,6 +64,18 @@ jQuery(document).ready(function ($) {
                 'type': type, 
                 'name': name, 
                 'counts': counts
+            }, callback);
+        }
+
+        // Delete a set/character.
+        // type: 'set' or 'char'
+        // name: the name of the entity to delete
+        // callback: will be passed the response object
+        delete(type, name, callback) {
+            this.post({
+                'action': 'delete', 
+                'type': type, 
+                'name': name
             }, callback);
         }
 
