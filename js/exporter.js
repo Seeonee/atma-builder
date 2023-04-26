@@ -245,7 +245,7 @@ jQuery(document).ready(function ($) {
             commands.push('SET card={0}'.format(name));
             commands.push('SET data="{0}{1}{2}"'.format(url, modes, encoded));
             commands.push('%chrome% --headless --disable-gpu --window-size={0} '.format(dimensions) + 
-                String.raw`--default-background-color=0 --screenshot="%dir%\%card%.png" %data%`);
+                String.raw`--default-background-color=00000000 --screenshot="%dir%\%card%.png" %data%`);
             commands.push('');
         }
 

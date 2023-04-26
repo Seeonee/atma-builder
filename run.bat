@@ -1,1 +1,1 @@
-"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --headless --disable-gpu --window-size=898,1488 --default-background-color=0 --screenshot=%CD%\screenshot.png %CD%\index.html
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --headless --disable-gpu --window-size=898,1488 --default-background-color=00000000 --screenshot=%CD%\screenshot.png %CD%\index.html
