@@ -6,7 +6,8 @@ jQuery(document).ready(function ($) {
         'calm', 
         'hasty', 
         'bright', 
-        'sly'
+        'sly', 
+        'harm'
     ];
 
     var colorStats = function(card) {

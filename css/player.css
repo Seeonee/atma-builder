@@ -268,7 +268,8 @@
     top: 12px;
     left: 30px;
 }
-.card.player.super.move .stat.health .modifier:before {
+.card.player.super.move .stat.health .modifier:before, 
+.card.player .main .content:not(.editing) u.harm {
     color: #d7162f;
 }
 .card.player.super.move .stat.health .label {
