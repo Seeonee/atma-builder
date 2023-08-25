@@ -1,6 +1,9 @@
 .card.backdrop .title .content.color-first-letter:not(.editing)::first-letter {
     color: #69bdae;
 }
+.card.backdrop .subtitle.lowered {
+    top: 195px; /* 133px + 62px */
+}
 
 
 .card.backdrop .type .content {
