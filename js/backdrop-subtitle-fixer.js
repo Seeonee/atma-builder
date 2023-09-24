@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
 
 
     cardRefresher.register(function(card) {
-        if (card.hasClass('backdrop')) {
+        if (card.hasClass('backdrop') && card.hasClass('front')) {
             card.find('.title .content').focusout(function (e) {
                 updateBackdropSubtitle(card);
             });
