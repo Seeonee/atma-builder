@@ -92,15 +92,9 @@ jQuery(document).ready(function ($) {
             return true;
         });
 
-        // Shift + enter used to insert a "double" newline.
-        // Now, two consecutive enters inserts a "double" newline.
+        // Two consecutive enters inserts a "double" newline.
         card.find('.content.multiline').on('keypress', function(e) {
             var target = $(e.target);
-            // if (e.which == 13 && e.shiftKey) {
-            //     document.execCommand('insertParagraph', true, null); 
-            //     document.execCommand("insertHtml", true, '<div class="br" />');
-            //     return false;
-            // }
             if (e.which == 13) {
                 let r = window.getSelection().getRangeAt(0);
                 let n = r.startContainer;
@@ -110,7 +104,18 @@ jQuery(document).ready(function ($) {
                 } else if (n.nodeType == 3 && r.startOffset == 0) { // We're in a text node.
                     p = n.previousSibling;
                 }
-                if (n.nodeName == 'BLOCKQUOTE' && n.childNodes.length == 1 && n.childNodes[0].nodeName == 'BR') {
+                let inTextNode = n.nodeType == 3;
+                let inTextWithinBlockquote = inTextNode && n.parentNode && n.parentNode.nodeName == 'BLOCKQUOTE';
+                let atEndOfRow = true; // for now...
+                if (inTextNode && inTextWithinBlockquote && atEndOfRow) {
+                    // We have to manually roll into a new blockquote element.
+                    document.execCommand("insertHtml", true, `</blockquote><blockquote class="${n.parentNode.className}">`);
+                    return false;
+                }
+                let inBlockquote = n.nodeName == 'BLOCKQUOTE';
+                let inEmptyBlockquote = n.childNodes.length == 0;
+                let inBlockquoteContainingOnlyBr = n.childNodes.length == 1 && n.childNodes[0].nodeName == 'BR';
+                if (inBlockquote && (inEmptyBlockquote || inBlockquoteContainingOnlyBr)) {
                     // We're in an empty blockquote. Remove it.
                     document.execCommand('outdent', true, null);
                     document.execCommand("insertHtml", true, '<div class="br" />');

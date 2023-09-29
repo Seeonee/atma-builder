@@ -69,6 +69,8 @@ jQuery(document).ready(function ($) {
         // Remove empty tags and trailing newlines.
         text = text.replace(/<[biu]*>\s*<\/[biu][^>]*>/g, '');
         text = text.replace(/(\n|\r|<br>|<div class="br"><\/div>)+$/, '');
+        // There are a bunch of edge cases involving trailing newlines near format closures; fix later.
+        // text = text.replace(/(\n|\r|<br>|<div class="br"><\/div>|<div class="br" \/>)*(<\/[biu]>*)(\n|\r|<br>|<div class="br"><\/div>|<div class="br" \/>)+$/, '$2');
         // Remove line breaks inside of blockquotes.
         text = text.replace(/(<br>)+<\/blockquote>/g, '</blockquote>');
 
