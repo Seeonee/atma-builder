@@ -355,8 +355,12 @@ jQuery(document).ready(function ($) {
             }
         } while (p.is('.gap'));
         let id = p.find('.img').attr('id');
-        let [type, num] = id.split('-');
-        cycleToIcon(id, {type: type, num: num});
+        if (id && id.includes('-')) {
+            let [type, num] = id.split('-');
+            cycleToIcon(id, {type: type, num: num});
+        } else {
+            p.trigger('click');
+        }
     }
     var cycleThroughRows = function(forward=true) { // Forward = moving down the page.
         let loaded = $('.loaded');
@@ -383,14 +387,24 @@ jQuery(document).ready(function ($) {
         }
         let i = Math.min(getIconIndex(p), row.find('.img').length);
         p = row.find('.img').eq(i - 1);
-        let [type, num] = p.attr('id').split('-');
-        let side = row.is('.front') ? 'front' : 'back';
-        cycleToIcon(p.attr('id'), {type: type, num: parseInt(num), side: side});
+        let id = p.attr('id');
+        if (id && id.includes('-')) {
+            let [type, num] = p.attr('id').split('-');
+            let side = row.is('.front') ? 'front' : 'back';
+            cycleToIcon(p.attr('id'), {type: type, num: parseInt(num), side: side});
+        } else {
+            p.parent().trigger('click');
+        }
     }
     var isRowGeneric = function(row) {
         let side = row.is('.front') ? 'front' : 'back';
         let p = row.find('.img').first();
-        return side == 'back' && GENERIC_BACKS.includes(p.attr('id').split('-')[0]);
+        let id = p.attr('id');
+        if (id && id.includes('-')) {
+            return side == 'back' && GENERIC_BACKS.includes(id.split('-')[0]);
+        } else {
+            return false;
+        }
     }
     var getIconIndex = function(p) {
         return p.closest('.row').find('.img').index(p) + 1;
