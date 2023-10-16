@@ -328,6 +328,85 @@ jQuery(document).ready(function ($) {
             return position;
         }
 
+        _makeJourneyGoal(label) {
+            var position = this._makeContent(`goal goal-${label}`, 'boldable italicizable underlinable multiline');
+            // Option 2a.
+            position.find('.content').addClass('numbered');
+            // End option 2a.
+
+            // Option 1.
+            $('<span class="line">').appendTo(position);
+            $(`<span class="tag"><span class="text">${label}</span></span>`).appendTo(position);
+            // End option 1.
+
+            // Option 1b.
+            // position.addClass('variant1b');
+            // End option 1b.
+
+            // Option 1c.
+            // position.addClass('variant1c');
+            // $('<span class="trapezoid">').appendTo(position.find('.line'));
+            // End option 1c.
+            
+            // Option 2.
+            // $('<span class="sidebar"><span class="bar"></span><span class="diamond"><span class="inner"></span></span></span>').appendTo(position);
+            // End option 2.
+
+            return position;
+        }
+
+        // Option 1a.
+        _makeJourneyBanner() {
+            var position = $('<div class="banner position">');
+            $('<span class="polygon"><span class="diamond-cutout"></span></span>').appendTo(position);
+            this._makeContent('goal-label', '', false).appendTo(position);
+            this._setContentText(position.find('.goal-label'), 'GOALS');
+            return position;
+        }
+        // End option 1a.
+
+        _makeMapRoute() {
+            var position = $('<span class="map-route position">');
+            $('<span class="line">').appendTo(position);
+            return position;
+        }
+
+        _makeMapPin(label, text) {
+            var position = $('<span class="main map-pin position {0}">'.format(label));
+            $('<span class="img">').appendTo(position);
+            var content = $('<span class="content boldable italicizable multiline">').appendTo(position);
+            content.html('<u>{0}</u><br>{1}'.format(label, text));
+            return position;
+        }
+
+        _makeMapStagePin(label, modifiers) {
+            var position = $('<span class="main map-pin stage position stage-{0}">'.format(label));
+            $('<span class="img"><span class="circle"></span><span class="triangle"></span><span class="rectangle"></span></span>').appendTo(position);
+            $('<span class="content stage-name underlinable">').appendTo(position).html(`<u>stage <span class="digit">${label}</span></u>`);
+            var content = $('<span class="grid content boldable italicizable">').appendTo(position);
+            this._makeMapStageTextLabel('Goals:').appendTo(content);
+            this._makeMapStageTextInfo(`story + <b>${modifiers[0]}</b> journey goal`).appendTo(content);
+            this._makeMapStageTextLabel('Tokens:').appendTo(content);
+            this._makeMapStageTextInfo(`<b>${modifiers[1]}</b> per scene`).appendTo(content);
+            this._makeMapStageTextLabel('Unlocks:').appendTo(content);
+            this._makeMapStageTextInfo(`<b>${modifiers[2]}</b> move in scene 3`).appendTo(content);
+            return position;
+        }
+        _makeMapStageTextLabel(text) {
+            return $(`<span class="label">${text}</span>`);
+        }
+        _makeMapStageTextInfo(text) {
+            return $(`<span class="info">${text}</span>`);
+        }
+
+        _makeMapParagraph(label, text) {
+            var position = $('<span class="main map-helper position {0}">'.format(label));
+            $('<span class="img">').appendTo(position);
+            var content = $('<span class="content boldable italicizable multiline">').appendTo(position);
+            content.html('<u>{0}</u><br>{1}'.format(label, text));
+            return position;
+        }
+
         // Personalizers.
 
         backdropFront(card) {
@@ -664,6 +743,120 @@ jQuery(document).ready(function ($) {
             // card.find('.back-text .content').text('CARD');
             card.find('.bottom.plate').remove();
             this._makeSafetyInsert().insertBefore(card.find('.bg'));
+        }
+
+        journeyFront(card) {
+            this._makePlate('top').appendTo(card);
+
+            this._makeContent('title large', 'uppercase italicizable multiline color-first-letter').appendTo(card);
+            
+            this._makeMidDivider().appendTo(card);
+            this._makeContent('expansion', 'uppercase').appendTo(card);
+
+            this._makeContent('main', 'boldable italicizable underlinable multiline').appendTo(card);
+
+            let position = card.find('.main');
+            this._makeJourneyGoal(1).appendTo(position);
+            this._makeJourneyGoal(2).appendTo(position);
+            this._makeJourneyGoal(3).appendTo(position);
+            this._addContentSpacer(card.find('.goal-3 .content'));
+            position.find('.goal .content').html('<u>title</u><br>Some text including a <b>bold</b> thing.<br><i>Italic reminder words.</i>');
+
+            // Option 1a.
+            // this._makeJourneyBanner().appendTo(card.find('.goal-1 .line'));
+            // card.find('.goal-1').addClass('variant1a');
+            // End option 1a.
+
+            // Option 1d.
+            this._makeJourneyBanner().appendTo(card.find('.goal-1 .line'));
+            card.find('.goal-1').addClass('variant1d');
+            // End option 1d.
+
+            // Option 2b.
+            // card.find('.goal').addClass('variant2b');
+            // End option 2b.
+
+            // Option 2c.
+            // this._makeContent('goal-label', '', false).appendTo(card.find('.goal-2'));
+            // this._setContentText(card.find('.goal-label'), 'GOALS');
+            // End option 2c.
+
+            // Option 2d.
+            // this._makeContent('goal-label', '', false).appendTo(card.find('.goal-1'));
+            // this._setContentText(card.find('.goal-label'), 'GOALS');
+            // card.find('.goal').addClass('variant2d');
+            // End option 2d.
+
+            // Option 2e.
+            // card.find('.goal').addClass('variant2e');
+            // End option 2e.
+
+            this._makePlate('bottom').appendTo(card);
+            this._makeContent('type', 'uppercase', false).appendTo(card);
+            this._setContentText(card.find('.type'), 'JOURNEY');
+            this._makeSymbol().appendTo(card);
+        }
+
+        journeyBack(card) {
+            card.addClass('player'); // Needed for styling.
+
+            this._makeWidePlate().appendTo(card);
+            this._makeContent('title', 'uppercase color-first-letter').appendTo(card);
+
+            this._makeContent('back-text', 'uppercase', false).appendTo(card);
+            this._setContentText(card.find('.back-text'), 'JOURNEY');
+            this._makeBackIcon().appendTo(card);
+            // this._makeBackPortrait().appendTo(card);
+            this._makeBackDivider().appendTo(card);
+
+            this._makeContent('chapter', 'uppercase').appendTo(card);
+            this._makeContent('main', 'boldable italicizable underlinable indentable multiline').appendTo(card);
+            this._addContentSpacer(card.find('.main .content'));
+
+            this._makePlate('bottom').appendTo(card);
+        }
+
+        mapFront(card) {
+            card.addClass('players');
+
+            this._makePlate('top').appendTo(card);
+
+            this._makeContent('title', 'uppercase').appendTo(card);
+            this._setContentText(card.find('.title'), 'CAMPAIGN MAP');
+
+            this._makeMapRoute().appendTo(card);
+            this._makeMapPin('setup', '<b>GM</b>: Choose a journey; read its light side, then flip it. Choose 3 stages.<br><br>' + 
+                                      '<b>Players</b>: Choose characters. Set up as usual, dealing 1 extra super move (light side up).').appendTo(card);
+            this._makeMapStagePin(1, ['1st', '+0', 'basic']).appendTo(card);
+            this._makeMapStagePin(2, ['2nd', '+1', 'super']).appendTo(card);
+            this._makeMapStagePin(3, ['3rd', '+2', 'super']).appendTo(card);
+            this._makeMapPin('conclusion', 'Narrate the journey\'s epilogue.').appendTo(card);
+
+            this._makePlate('bottom').appendTo(card);
+            this._makeContent('type', 'uppercase', false).appendTo(card);
+            this._setContentText(card.find('.type'), 'CAMPAIGN');
+            this._makeSymbol().appendTo(card);
+        }
+
+        mapBack(card) {
+            card.addClass('players');
+
+            this._makePlate('top').appendTo(card);
+
+            this._makeContent('title', 'uppercase').appendTo(card);
+            this._setContentText(card.find('.title'), 'CAMPAIGN PLAY');
+
+            this._makeContent('main', 'boldable multiline').appendTo(card).find('.content').html('<b>Journeys</b> let you connect multiple games of Atma into a larger narrative. The GM and players collaborate to link story goals into journey goals, and to preserve and expand the campaign world as they play.');
+
+            this._makeMapParagraph('goals', 'A stage only ends once the journey, story, and scene 3 goals are complete.').appendTo(card);
+            this._makeMapParagraph('progression', 'Players lay out an extra super move during character setup, but only unlock moves as scene 3 starts in each stage.<br><i>Keep unlocked cards between sessions.</i>').appendTo(card);
+            this._makeMapParagraph('tokens', 'The GM gets an extra token per scene in stage 2, and 2 more tokens per scene in stage 3.<br><i>Keep finished stories between sessions.</i>').appendTo(card);
+            this._makeMapParagraph('continuity', 'After a stage ends, the GM and players can each choose 1 GM card in play to carry forward into the next stage.').appendTo(card);
+
+            this._makePlate('bottom').appendTo(card);
+            this._makeContent('type', 'uppercase', false).appendTo(card);
+            this._setContentText(card.find('.type'), 'CAMPAIGN');
+            this._makeSymbol().appendTo(card);
         }
     }
 

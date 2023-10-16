@@ -573,6 +573,8 @@ body {
     float: right;
     width: var(--w);
     height: var(--h);
+/*    background: #0000ff55;*/
+/*    clip-path: polygon(100% 0, 100% 100%, 0 100%, 100% calc(var(--h) - var(--w)), 0 0);*/
     shape-outside: polygon(100% 0, 100% 100%, 0 100%, 100% calc(var(--h) - var(--w)), 100% 0);
 }
 .card .main.position .spacer {

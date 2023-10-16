@@ -125,17 +125,22 @@ jQuery(document).ready(function ($) {
 
                 // Also update the menu.
                 let grouping = card.hasClass('player') ? 'chars' : 'sets';
-                name = clean(name);
-                let q = '.menu-main .creations .{0} #{1} .{2} #{3}'.format(grouping, name, side, type);
-                let outer = jQuery(q).parent();
-                title = data['{0}-title'.format(side)];
-                if (!title && side == 'back' && data['front-title']) {
-                        title = '{0} (back)'.format(data['front-title']);
+                if (card.hasClass('journey')) {
+                    grouping = 'campaigns';
                 }
-                if (!title) {
-                    title = '{0} ({1})'.format(type, side);
+                if (name) {
+                    name = clean(name);
+                    let q = '.menu-main .creations .{0} #{1} .{2} #{3}'.format(grouping, name, side, type);
+                    let outer = jQuery(q).parent();
+                    title = data['{0}-title'.format(side)];
+                    if (!title && side == 'back' && data['front-title']) {
+                            title = '{0} (back)'.format(data['front-title']);
+                    }
+                    if (!title) {
+                        title = '{0} ({1})'.format(type, side);
+                    }
+                    outer.find('.tooltip .text').text(title);
                 }
-                outer.find('.tooltip .text').text(title);
             }
         }
 
@@ -364,6 +369,35 @@ jQuery(document).ready(function ($) {
         }
 
         xcardBack(card, entityName, data) {
+            // Noop.
+        }
+
+        journeyFront(card, entityName, data) {
+            this._fillContent(card, data, '.title', 'front-title');
+            this._solidifyContent(card, '.expansion', entityName);
+            this._fillContent(card, data, '.main', 'front-text');
+            this._fillContent(card, data, '.goal.first', 'front-extra', 'goal-1');
+            this._fillContent(card, data, '.goal.second', 'front-extra', 'goal-2');
+            this._fillContent(card, data, '.goal.third', 'front-extra', 'goal-3');
+
+            this._fillArt(card, data, 'front-image');
+            this._fillContent(card, data, '.comment', 'front-comment');
+        }
+
+        journeyBack(card, entityName, data) {
+            this._solidifyContent(card, '.title', entityName);
+            this._fillContent(card, data, '.chapter', 'back-title');
+            this._fillContent(card, data, '.main', 'back-text');
+
+            // this._fillArt(card, data, 'back-image');
+            this._fillContent(card, data, '.comment', 'back-comment');
+        }
+
+        mapFront(card, entityName, data) {
+            // Noop.
+        }
+
+        mapBack(card, entityName, data) {
             // Noop.
         }
     }

@@ -142,6 +142,9 @@ jQuery(document).ready(function ($) {
             case 'set':
                 json = vttSet(entityName, cards);
                 break;
+            case 'campaign':
+                json = vttCampaign(entityName, cards);
+                break;
         }
         return json;
     }
@@ -198,6 +201,11 @@ jQuery(document).ready(function ($) {
             }, 
             cost: cost
         };
+    }
+
+    var vttCampaign = function(entityName, cards) {
+        let json = {};
+        return json
     }
 
     // Get the raw text to download.
@@ -285,7 +293,7 @@ jQuery(document).ready(function ($) {
     }
 
     exportEntitiesJSON = function(ids) {
-        let json = {set: {}, char: {}};
+        let json = {set: {}, char: {}, campaign: {}};
         ids.filter(i => i.startsWith('set:'))
            .map(i => i.substr(4))
            .forEach(i => {json.set[i] = vttEntity('set', i);});

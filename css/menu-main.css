@@ -248,6 +248,14 @@
     background-image: url("../images/menu/singles/xcard.png");
     filter: brightness(0) invert(21%) sepia(82%) saturate(3696%) hue-rotate(341deg) brightness(83%) contrast(104%);
 }
+.menu-main .row .journey.img {
+    background-image: url("../images/menu/singles/journey.png");
+    filter: brightness(0) invert(29%) sepia(96%) saturate(1272%) hue-rotate(289deg) brightness(105%) contrast(81%);
+}
+.menu-main .row .map.img {
+    background-image: url("../images/menu/singles/map.png");
+    filter: brightness(0) saturate(100%);
+}
 .menu-main .row.back .img {
     margin-top: -6px;
     transform: scaleY(-1);
@@ -312,6 +320,9 @@
 .menu-main .row.front .img.move+.tooltip .text, 
 .menu-main .row.front .img.super+.tooltip .text {
     background: #000;
+}
+.menu-main .row.front .img.journey+.tooltip .text {
+    background: #dd46ab;
 }
 .menu-main .row.back .tooltip .text {
     color: #000;

@@ -15,6 +15,8 @@ jQuery(document).ready(function ($) {
         'character', 
         'move', 
         'super', 
+        'journey', 
+        'map', 
         'reference', 
         'xcard', 
     ];
@@ -33,6 +35,9 @@ jQuery(document).ready(function ($) {
             character: 1, 
             move: 4, 
             super: 3
+        }, 
+        'campaign': {
+            journey: 12, 
         }
     };
     var ENTITY_FOR_TYPE = {
@@ -49,7 +54,10 @@ jQuery(document).ready(function ($) {
         super: 'char', 
 
         reference: 'ref', 
-        xcard: 'ref'
+        xcard: 'ref', 
+        map: 'ref', 
+
+        journey: 'campaign', 
     };
     GENERIC_BACKS = ['backdrop', 'story', 'scene', 'prop', 'twist'];
 
@@ -474,11 +482,11 @@ jQuery(document).ready(function ($) {
 
     var createCreations = function(menu) {
         var item = createItem('Creations', 'creations', menu);
-        $('<span class="description">Manage sets and characters.</span>').appendTo(item);
+        $('<span class="description">Manage sets, characters, and campaigns.</span>').appendTo(item);
 
         var add = createItem('New', 'new-creation', item);
-        $('<span class="description">Create a new set or character with a default spread of cards.</span>').appendTo(add);
-        createForm('Name', 'creation-name', 'set: <name> / char: <name>', '', 
+        $('<span class="description">Create a new set, character, or campaign with a default spread of cards.</span>').appendTo(add);
+        createForm('Name', 'creation-name', 'set: <name> / char: <name> / campaign: <name>', '', 
             function(value, showStatus) {
                 try {
                     var pieces = value.trim().split(':');
@@ -486,7 +494,7 @@ jQuery(document).ready(function ($) {
                     if (type == 'character') {
                         type = 'char';
                     }
-                    if (['set', 'char'].includes(type)) {
+                    if (['set', 'char', 'campaign'].includes(type)) {
                         var name = pieces[1].trim();
                         showStatus('Request submitted');
                         contentManager.create(type, name, COUNTS[type], (status, data) => {
@@ -503,8 +511,8 @@ jQuery(document).ready(function ($) {
             }, undefined).appendTo(add);
 
         var deletion = createItem('Delete', 'delete-creation', item);
-        $('<span class="description">Delete an existing set or character by name.</span>').appendTo(deletion);
-        createForm('Name', 'creation-name', 'set: <name> / char: <name>', '', 
+        $('<span class="description">Delete an existing set, character, or campaign by name.</span>').appendTo(deletion);
+        createForm('Name', 'creation-name', 'set: <name> / char: <name> / campaign: <name>', '', 
             function(value, showStatus) {
                 try {
                     var pieces = value.trim().split(':');
@@ -539,6 +547,9 @@ jQuery(document).ready(function ($) {
 
         var chars = createItem('Characters', 'chars', item);
         $('<span class="description">Characters you\'ve worked on.</span>').appendTo(chars);
+
+        var campaigns = createItem('Campaigns', 'campaigns', item);
+        $('<span class="description">Campaigns you\'ve worked on.</span>').appendTo(campaigns);
     }
 
 
@@ -574,7 +585,7 @@ jQuery(document).ready(function ($) {
         });
 
         var divs;
-        var FRESH_ROWS = ['backdrop', 'character', 'reference'];
+        var FRESH_ROWS = ['backdrop', 'character', 'journey'];
         TYPES.forEach(function(type) {
             if (!divs || FRESH_ROWS.includes(type)) {
                 divs = {
@@ -630,7 +641,7 @@ jQuery(document).ready(function ($) {
         if (enabled) {
             updateAllItemGroups();
         } else {
-            ['char', 'set'].forEach(type => {
+            ['char', 'set', 'campaign'].forEach(type => {
                 let parent = $('.menu-main .creations .{0}s>.contents'.format(type));
                 parent.find('.{0}'.format(type)).appendTo(parent);
                 parent.find('.collection').remove();

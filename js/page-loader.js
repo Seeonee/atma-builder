@@ -68,7 +68,7 @@ jQuery(document).ready(function ($) {
         }
 
         if (initialize) {
-            ['sets', 'chars'].forEach(type => {
+            ['sets', 'chars', 'campaigns'].forEach(type => {
                 $(`.menu-main .creations .${type} .contents>:not(.description)`).remove();
             });
             contentManager.list('set', (status, data) => {
@@ -82,16 +82,22 @@ jQuery(document).ready(function ($) {
                         keys.forEach((key) => { addCreationToMenu('char', data[key]) });
                         updateAllItemGroups();
                     }
-                    if (entityType && entityName && cardType && cardNum) {
-                        contentManager.query(entityType, entityName, (status, data) => {
-                            if (status == 'success') {
-                                updateCreationsMenu(entityType, entityName);
-                                cardMaker._make(cardType, side == 'back', 
-                                    entityType, entityName, '{0}-{1}'.format(cardType, cardNum), 
-                                    data);
-                            }
-                        });
-                    }
+                    contentManager.list('campaign', (status, data) => {
+                        if (status == 'success') {
+                            let keys = Object.keys(data).reverse();
+                            keys.forEach((key) => { addCreationToMenu('campaign', data[key]) });
+                        }
+                        if (entityType && entityName && cardType && cardNum) {
+                            contentManager.query(entityType, entityName, (status, data) => {
+                                if (status == 'success') {
+                                    updateCreationsMenu(entityType, entityName);
+                                    cardMaker._make(cardType, side == 'back', 
+                                        entityType, entityName, '{0}-{1}'.format(cardType, cardNum), 
+                                        data);
+                                }
+                            });
+                        }
+                    });
                 });
             });
         } else {

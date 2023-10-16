@@ -8,8 +8,8 @@ jQuery(document).ready(function ($) {
         'back-title', 'back-subtitle', 'back-text', 'back-extra', 'back-image', 'back-comment', 
     ];
 
-    const ENTITY_TYPES = ['set', 'char'];
-    const CARD_TYPES = ['backdrop', 'story', 'scene', 'extra', 'star', 'prop', 'twist', 'character', 'move', 'super'];
+    const ENTITY_TYPES = ['set', 'char', 'campaign'];
+    const CARD_TYPES = ['backdrop', 'story', 'scene', 'extra', 'star', 'prop', 'twist', 'character', 'move', 'super', 'journey'];
 
 
     // Helpers.

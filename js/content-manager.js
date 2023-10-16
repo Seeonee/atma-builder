@@ -24,7 +24,8 @@ jQuery(document).ready(function ($) {
             this.lookedUp = false;
             this.stores = {
                 'set': {}, 
-                'char': {}
+                'char': {}, 
+                'campaign': {}
             };
             this.standalone = null;
             this.changes = false;

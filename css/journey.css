@@ -1,0 +1,753 @@
+.card.journey .title .content.color-first-letter:not(.editing)::first-letter {
+    color: #dd46ab;
+}
+
+.card.journey .type .content {
+    color: #dd46ab;
+}
+.card.journey .plate.bottom .shape {
+    border-right-color: #dd46ab;
+}
+.card.journey .plate.bottom .polygon {
+    background-color: #dd46ab;
+}
+
+.card.journey .symbol .img {
+    background-image: url("../images/corner/journey.png");
+}
+
+/* Styling for front of card. */
+/* Styling for less art/more text. */
+.card.journey.front .bg {
+    background-image: url("../images/bg/black_high.png");
+}
+.card.journey .mid-divider, 
+.card.journey .expansion.position {
+    top: 652px;
+}
+.card.journey .main.position {
+    top: 717px; /* +63px from divider. */
+}
+
+.card.journey.front .main.position {
+    display: inline-block;
+}
+.card.journey.front .goal.position {
+    position: relative;
+    display: block;
+    --margin-top: 35px;
+    --margin-left: 50px;
+    margin-top: var(--margin-top);
+    margin-left: var(--margin-left);
+}
+
+.card.journey.front .goal .content u, 
+.card.journey.front .goal .content b {
+    color: var(--goal-color);
+}
+.card.journey.front .goal-1 {
+    --goal-color: #af7da2;
+}
+.card.journey.front .goal-2 {
+    --goal-color: #c661be;
+}
+.card.journey.front .goal-3 {
+    --goal-color: #dd46ab;
+}
+
+/* Option 1: bookmark tags and gradient lines. */
+.card.journey.front .goal .line {
+    position: absolute;
+    --gradient-start: calc(var(--margin-left) + 87px - 45px);
+    top: 0px;
+    left: calc(-87px - var(--margin-left)); /* .card .main.position: left, from card.css */
+    height: 5px; /* .card .mid-divider .bar: height, from card.css */
+    width: 898px; /* .card: width, from card.css */
+    background: linear-gradient(to right, transparent var(--gradient-start), var(--goal-color) 90%);
+}
+.card.journey.front .goal .tag {
+    position: absolute;
+    top: 0px;
+    left: calc(-87px - var(--margin-left)); /* .card .main.position: left, from card.css */
+    height: 88px; /* .card.player .stat .polygon: height, from player.css */
+    width: calc(75px + var(--margin-left));
+    background: var(--goal-color);
+    clip-path: polygon(100% 50%, calc(100% - 44px) 0, 0 0, 0 100%, calc(100% - 44px) 100%);
+}
+.card.journey.front .goal .tag .text {
+    position: absolute;
+    top: 10px;
+    right: 35px;
+    width: 50px;
+
+    color: white;
+    text-align: center;
+    font-size: 56px;
+    font-weight: bold;
+    transform-origin: center;
+    -webkit-transform: scale(1.205,1);
+    -moz-transform: scale(1.205,1);
+    -ms-transform: scale(1.205,1);
+    -o-transform: scale(1.205,1);
+    transform: scale(1.205,1);
+}
+/* End option 1. */
+
+/* Option 1a: Goal banner on right side. */
+.card.journey.front .goal-1.variant1a .banner.position {
+    position: absolute;
+    top: 0px;
+    right: 130px;
+    background: #ff000033;
+    z-index: 1;
+}
+.card.journey.front .goal-1.variant1a .polygon {
+    position: absolute;
+    --w: 60px;
+    --h: 300px;
+    --w2: calc(var(--w) / 2);
+    --y2: calc(var(--h) - var(--w2));
+    height: var(--h);
+    width: var(--w);
+    background: linear-gradient(to bottom, var(--goal-color) 10%, #dd46ab 90%);
+    clip-path: polygon(0 0, 100% 0, 100% var(--y2), 50% 100%, 0 var(--y2));
+}
+.card.journey.front .goal-1.variant1a .diamond-cutout {
+    position: absolute;
+    display: inline-block;
+    top: 254px;
+    left: 14.5px;
+    --s: 30px;
+    height: var(--s);
+    width: var(--s);
+    background: #000;
+    transform: rotate(-45deg);
+    transform-origin: center;
+}
+.card.journey.front .goal-1.variant1a .goal-label.position {
+    top: 62px;
+    left: -28px;
+    transform: rotate(90deg);
+}
+.card.journey.front .goal-1.variant1a .goal-label .content {
+    font-weight: bold;
+    color: #000;
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+
+    transform-origin: top left;
+    -webkit-transform:scale(1.5,1.1); /* Safari and Chrome */
+    -moz-transform:scale(1.5,1.1); /* Firefox */
+    -ms-transform:scale(1.5,1.1); /* IE 9 */
+    -o-transform:scale(1.5,1.1); /* Opera */
+    transform:scale(1.5,1.1); /* W3C */
+}
+.card.journey.front .goal-1.variant1a .goal-label .content {
+    font-size: 36px;
+}
+/* End option 1a. */
+
+/* Option 1b: Altered horizontal divider lines (falling triangles). */
+.card.journey.front .goal.variant1b .line {
+    background: var(--goal-color);
+    --h: 5px;
+    --h2: 14px;
+    --w: 95px;
+    --w2: calc(var(--w) + var(--h2));
+    --w3: calc(var(--w2) + var(--h2) - var(--h));
+    height: var(--h2);
+    clip-path: polygon(100% 0, var(--w) 0, var(--w2) var(--h2), var(--w3) var(--h), 100% var(--h));
+}
+/* End option 1b. */
+
+/* Option 1c: Altered horizontal divider lines (rising trapezoids). */
+.card.journey.front .goal.variant1c .line {
+    background: var(--goal-color);
+    height: 5px;
+    width: 793px;
+    top: 0px;
+    left: unset;
+    right: -120px;
+}
+.card.journey.front .goal.variant1c .line .trapezoid {
+    display: block;
+    top: -7px;
+    left: -6px;
+    position: absolute;
+    height: 12px;
+    width: 13px;
+    transform: scaleY(-1) skew(-45deg, 0);
+    background: var(
+    --goal-color);
+}
+.card.journey.front .goal.variant1c .tag {
+    top: -7px;
+}
+/* End option 1c. */
+
+/* Option 1d: Goal banner on right side. */
+.card.journey.front .goal-1.variant1d .banner.position {
+    position: absolute;
+    top: -5px;
+    right: 190px;
+    right: 117px;
+    background: #ff000033;
+    z-index: 1;
+}
+.card.journey.front .goal-1.variant1d .polygon {
+    position: absolute;
+    --s: 19px;
+    height: var(--s);
+    width: var(--s);
+    background: var(--goal-color);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    transform-origin: center;
+    transform: rotate(135deg);
+}
+.card.journey.front .goal-1.variant1d .goal-label.position {
+    top: -40px;
+    right: -32px;
+    right: 34px;
+}
+.card.journey.front .goal-1.variant1d .goal-label .content {
+    font-weight: bold;
+    color: var(--goal-color);
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+
+    transform-origin: top left;
+    -webkit-transform:scale(1.5,1.1); /* Safari and Chrome */
+    -moz-transform:scale(1.5,1.1); /* Firefox */
+    -ms-transform:scale(1.5,1.1); /* IE 9 */
+    -o-transform:scale(1.5,1.1); /* Opera */
+    transform:scale(1.5,1.1); /* W3C */
+}
+.card.journey.front .goal-1.variant1d .goal-label .content {
+    font-size: 36px;
+}
+/* End option 1d. */
+
+/* Option 2: "Route" of diamonds. */
+.card.journey.front .goal .diamond {
+    position: absolute;
+    display: inline-block;
+    top: 26px;
+    left: -50px;
+    --s: 36px;
+    height: var(--s);
+    width: var(--s);
+    background: var(--goal-color);
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+.card.journey.front .goal .inner {
+    position: absolute;
+    display: inline-block;
+    --thickness: 6px;
+    top: var(--thickness);
+    left: var(--thickness);
+    height: calc(var(--s) - (2 * var(--thickness)));
+    width: calc(var(--s) - (2 * var(--thickness)));
+    background: #000;
+    transform-origin: center;
+}
+.card.journey.front .goal .bar {
+    position: absolute;
+    --h: 0px;
+    --w: 10px;
+    top: 43px;
+    left: calc(-32px - (var(--w) / 2));
+    --gradient-start: 20px;
+    --gradient-end: calc(100% - var(--gradient-start));
+    height: var(--h);
+    width: var(--w);
+    background: linear-gradient(to bottom, var(--goal-color) var(--gradient-start), var(--next-goal-color) var(--gradient-end));
+}
+.card.journey.front .goal-1 {
+    --next-goal-color: #c661be;
+}
+.card.journey.front .goal-2 {
+    --next-goal-color: #dd46ab;
+}
+.card.journey.front .goal-2 .inner {
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+.card.journey.front .goal-3 .bar {
+    --h: 0px;
+}
+.card.journey.front .goal-3 .inner {
+    display: none;
+}
+.card.journey.front .goal .bar {
+    transition: opacity 0.25s ease-in-out;
+}
+.card.journey.front .goal .bar.editing {
+    opacity: 0;
+}
+/* End option 2. */
+
+/* Option 2a: number prefixes for goal titles. */
+.card.journey.front .goal .content.numbered u:first-child::before {
+    font-size: 0.7em;
+}
+.card.journey.front .goal-1 .content.numbered u:first-child::before {
+    content: "1. ";
+}
+.card.journey.front .goal-2 .content.numbered u:first-child::before {
+    content: "2. ";
+}
+.card.journey.front .goal-3 .content.numbered u:first-child::before {
+    content: "3. ";
+}
+/* End option 2a. */
+
+/* Option 2b: Altered middle diamond. */
+.card.journey.front .goal.variant2b .bar {
+    height: calc(3px + var(--h));
+}
+.card.journey.front .goal-2.variant2b .diamond {
+    left: -47px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+/* End option 2b. */
+
+/* Option 2c: Goal text. */
+.card.journey.front .goal-2 .goal-label.position {
+    top: 55px;
+    left: -125px;
+    transform: rotate(-90deg);
+}
+.card.journey.front .goal-2 .goal-label .content {
+    font-weight: bold;
+    color: var(--goal-color);
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+
+    transform-origin: top left;
+    -webkit-transform:scale(1.5,1.1); /* Safari and Chrome */
+    -moz-transform:scale(1.5,1.1); /* Firefox */
+    -ms-transform:scale(1.5,1.1); /* IE 9 */
+    -o-transform:scale(1.5,1.1); /* Opera */
+    transform:scale(1.5,1.1); /* W3C */
+}
+.card.journey.front .goal-2 .goal-label .content {
+    font-size: 36px;
+}
+/* End option 2c. */
+
+/* Option 2d: Goal text, fewer diamonds. */
+.card.journey.front .variant2d.goal-1 .goal-label.position {
+    top: 175px;
+    left: -125px;
+    transform: rotate(-90deg);
+}
+.card.journey.front .variant2d.goal-1 .goal-label .content {
+    font-weight: bold;
+    color: var(--goal-color);
+
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+
+    transform-origin: top left;
+    -webkit-transform:scale(1.5,1.1); /* Safari and Chrome */
+    -moz-transform:scale(1.5,1.1); /* Firefox */
+    -ms-transform:scale(1.5,1.1); /* IE 9 */
+    -o-transform:scale(1.5,1.1); /* Opera */
+    transform:scale(1.5,1.1); /* W3C */
+}
+.card.journey.front .variant2d.goal-3 .goal-label .content {
+    font-size: 36px;
+}
+.card.journey.front .variant2d.goal-2 .diamond, 
+.card.journey.front .variant2d.goal-3 .diamond {
+    display: none;
+}
+.card.journey.front .variant2d.goal .bar {
+    --w: 5px;
+}
+.card.journey.front .variant2d.goal-3 {
+    --next-goal-color: #dd46ab;
+}
+/* End option 2d. */
+
+/* Option 2e: small triangles instead of (absent) diamonds. */
+.card.journey.front .variant2e.goal-2 .diamond, 
+.card.journey.front .variant2e.goal-3 .diamond {
+    display: block;
+    --clip-w: 19px;
+    clip-path: polygon(calc(100% - var(--clip-w)) 0, 100% 0, 100% var(--clip-w));
+}
+.card.journey.front .variant2e.goal .inner {
+    display: none;
+}
+/* End option 2e. */
+
+
+/* Logic for the 3rd goal's text spacer. */
+.card.journey .goal-3.editing .spacer, 
+.card.journey .goal-3 .spacer.editing {
+    display: none;
+}
+
+
+/* Styling for back of card. */
+.card.journey.back .title.position {
+    width: 440px;
+}
+.card.journey.back .bg {
+    background-image: none;
+}
+
+.card.journey.back .back-text.position {
+    top: 69px;
+    left: 536px;
+    width: auto;
+    text-align: right;
+    transform-origin: top right;
+    transform: rotate(-45deg);
+}
+.card.journey.back .back-text .content, 
+.card.journey.back .chapter .content, 
+.card.journey.back .chapter .content::before, 
+.card.journey.back .chapter .content::after {
+    color: #dd46ab;
+}
+
+.card.journey.back .back-icon.position {
+    top: 0px;
+    right: 0px;
+}
+.card.journey.back .back-icon .img {
+    display: inline-block;
+    width: 633px;
+    height: 673px;
+}
+.card.journey.back .back-icon .img {
+    background-image: url("../images/back/journey.png");
+    filter: brightness(0) invert(29%) sepia(96%) saturate(1272%) hue-rotate(289deg) brightness(105%) contrast(81%);
+}
+
+/* Styling for character-like back. */
+/*.card.journey.back .art-url {
+    top: 80px;
+}
+.card.journey.back .chapter.position {
+    top: 481px;
+}*/
+/* Styling for move-like back. */
+.card.journey.back .back-divider .line, 
+.card.journey.back .back-divider .tag {
+    background-color: #dd46ab;
+}
+
+
+/* Allow underline/smallcaps text to be prefixed with card type icons. */
+/*
+.card.journey .main .content u:before {
+    --s: 30px;
+    --index: 0;
+    content: "";
+    display: inline-block;
+    height: var(--s);
+    width: var(--s);
+    margin-bottom: -5px;
+    margin-right: 3px;
+    background-color: #88888833;
+    border-radius: 50%;
+    background-position-x: calc(var(--index) * -1 * var(--s));
+}
+.card.journey .main .content u.backdrop:before, 
+.card.journey .main .content u.story:before, 
+.card.journey .main .content u.scene:before, 
+.card.journey .main .content u.extra:before, 
+.card.journey .main .content u.star:before, 
+.card.journey .main .content u.boss:before, 
+.card.journey .main .content u.prop:before, 
+.card.journey .main .content u.twist:before {
+    background-color: transparent;
+    background-image: url("../images/journey-icons.png");
+}
+.card.journey .main .content u.backdrop {
+    color: #69bdae;
+}
+.card.journey .main .content u.backdrop:before {
+    --index: 0;
+}
+.card.journey .main .content u.story {
+    color: #61b36a;
+}
+.card.journey .main .content u.story:before {
+    --index: 1;
+}
+.card.journey .main .content u.scene {
+    color: #df8545;
+}
+.card.journey .main .content u.scene:before {
+    --index: 2;
+}
+.card.journey .main .content u.extra, 
+.card.journey .main .content u.star, 
+.card.journey .main .content u.boss {
+    color: #5ca9d9;
+}
+.card.journey .main .content u.extra:before {
+    --index: 3;
+}
+.card.journey .main .content u.star:before {
+    --index: 4;
+}
+.card.journey .main .content u.boss:before {
+    --index: 5;
+}
+.card.journey .main .content u.prop {
+    color: #948e7f;
+}
+.card.journey .main .content u.prop:before {
+    --index: 6;
+}
+.card.journey .main .content u.twist {
+    color: #906c9d;
+}
+.card.journey .main .content u.twist:before {
+    --index: 7;
+}
+*/
+
+
+/* Map (reference) card. */
+.card.map, 
+.card.players.map.back {
+    background: #000;
+}
+.card.map .art, 
+.card.map .bg {
+    display: none;
+}
+
+.card.map .plate.top .polygon {
+    background-color: #fff;
+}
+
+.card.map .type .content {
+    color: #fff;
+}
+.card.map .title.position {
+    left: unset;
+    right: 160px;
+    text-align: right;
+}
+.card.map .title .content {
+    text-shadow: none;
+    color: #fff;
+}
+.card.map .plate.bottom .polygon {
+    background-color: #fff;
+}
+
+.card.map.back .main.position {
+    top: 205px;
+}
+
+
+/* Front side route helpers. */
+.card.map.front .map-pin.position {
+    --offset: 110px;
+    left: calc(87px + var(--offset));
+    width: calc(694.02px - var(--offset));
+}
+.card.map.front .map-pin.setup.position {
+    top: 210px;
+}
+.card.map.front .map-pin.stage-1.position {
+    top: 542px;
+}
+.card.map.front .map-pin.stage-2.position {
+    top: 767px;
+}
+.card.map.front .map-pin.stage-3.position {
+    top: 991px;
+}
+.card.map.front .map-pin.conclusion.position {
+    top: 1204px;
+}
+
+.card.map.front .map-pin.setup .content u {
+/*    color: #000;*/
+}
+.card.map.front .map-pin.setup .content u, 
+.card.map.front .map-pin.conclusion .content u {
+    color: #dd46ab;
+}
+.card.map.front .map-pin.stage-1 {
+    --stage-color: #af7da2;
+}
+.card.map.front .map-pin.stage-2 {
+    --stage-color: #c661be;
+}
+.card.map.front .map-pin.stage-3 {
+    --stage-color: #dd46ab;
+}
+
+.card.map.front .map-pin .digit {
+    font-size: 0.7em;
+}
+.card.map.front .map-pin .grid {
+    display: inline-grid;
+    grid-template-columns: 148px auto;
+    padding: 0px;
+    margin-top: 15px;
+}
+.card.map.front .map-pin .grid .label {
+    text-align: right; 
+    padding-right: 12px;
+    font-style: italic;
+    color: #959c9d;
+}
+.card.map.front .map-pin .grid .info b {
+    color: var(--stage-color);
+}
+
+.card.map.front .map-pin .img {
+    --s: 125px;
+    position: absolute;
+    top: -15px;
+    left: -100px;
+    height: var(--s);
+    width: var(--s);
+}
+.card.map.front .map-pin .img .circle {
+    position: absolute;
+    display: block;
+    --s: 30px;
+    top: 19px;
+    left: 5px;
+    height: var(--s);
+    width: var(--s);
+    border-radius: 50%;
+    background-color: #000;
+    border: 10px solid var(--stage-color);
+}
+.card.map.front .map-pin .img .triangle {
+    position: absolute;
+    display: block;
+    top: 28px;
+    left: 61px;
+    --s: 30px;
+    height: var(--s);
+    width: calc(var(--s) * 0.867);
+    background-color: var(--stage-color);
+    clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+}
+.card.map.front .map-pin .img .rectangle {
+    position: absolute;
+    display: block;
+    top: 15px;
+    left: 85px;
+    height: 55px;
+    width: 140px;
+    background-color: var(--stage-color);
+    border-radius: 5px;
+}
+
+.card.map.front .map-pin.setup .img, 
+.card.map.front .map-pin.conclusion .img {
+    --s: 125px;
+    position: absolute;
+    top: -15px;
+    left: -132px;
+    height: var(--s);
+    width: var(--s);
+    background-image: url(../images/map-helper-icons.png);
+    background-position-y: calc(var(--i) * -1 * var(--s));
+}
+.card.map.front .map-pin.setup .img {
+    top: -55px;
+    --i: 4;
+}
+.card.map.front .map-pin.conclusion .img {
+    --i: 5;
+}
+
+/* Dashed line gradient: https://stackoverflow.com/a/32501799 */
+.card.map.front .map-route.position {
+    top: 269px;
+    left: 120px;
+}
+.card.map.front .map-route .line {
+    --color-from: #959c9d;
+    --color-to: #dd46ab;
+    --color-bg: #000;
+    --gradient-start: 0%;
+    --gradient-end: 80%;
+    --dash-length: 38px;
+    --dash-gap: 30px;
+    --cycle-length: calc(var(
+    --dash-length) + var(--dash-gap));
+    display: block;
+    height: 937px;
+    width: 14px;
+    background: linear-gradient(to bottom, transparent var(--dash-length), var(--color-bg) var(--dash-length)), linear-gradient(to bottom, var(--color-from) var(--gradient-start), var(--color-to) var(--gradient-end));
+    background-size: 100% var(--cycle-length), 100% 100%;
+}
+
+
+/* Back side paragraph helpers. */
+.card.map.back .map-helper.position {
+    --offset: 50px;
+    left: calc(87px + var(--offset));
+    width: calc(694.02px - var(--offset));
+}
+.card.map.back .map-helper.goals.position {
+    top: 460px;
+}
+.card.map.back .map-helper.progression.position {
+    top: 620px;
+}
+.card.map.back .map-helper.tokens.position {
+    top: 870px;
+}
+.card.map.back .map-helper.continuity.position {
+    top: 1120px;
+}
+
+.card.map.back .map-helper .img {
+    --s: 125px;
+    position: absolute;
+    top: -15px;
+    left: -100px;
+    height: var(--s);
+    width: var(--s);
+    background-image: url(../images/map-helper-icons.png);
+    background-position-y: calc(var(--i) * -1 * var(--s));
+}
+.card.map.back .map-helper.goals .img {
+    --i: 0;
+}
+.card.map.back .map-helper.progression .img {
+    --i: 1;
+}
+.card.map.back .map-helper.tokens .img {
+    --i: 2;
+}
+.card.map.back .map-helper.continuity .img {
+    --i: 3;
+}
+.card.map.back .map-helper .content u {
+    color: #dd46ab;
+}
+
+.card.map .symbol .img {
+    background-image: url(../images/corner/map.png);
+    filter: brightness(0);
+}
