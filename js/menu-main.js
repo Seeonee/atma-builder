@@ -164,7 +164,7 @@ jQuery(document).ready(function ($) {
 
     updateAllItemGroups = function() {
         updateItemGroups('char', CHARS_PER_GROUP);
-        // updateItemGroups('set', SETS_PER_GROUP);
+        updateItemGroups('set', SETS_PER_GROUP);
     }
 
     let updateItemGroups = function(type, n) {
@@ -673,7 +673,7 @@ jQuery(document).ready(function ($) {
             ['highlight-underline', 'Highlight small caps', optionHandler], 
             ['highlight-newlines', 'Highlight linebreaks', optionHandler], 
             [], 
-            ['group-chars', 'Group characters', groupCharsHandler]
+            ['group-chars', 'Group seasons', groupCharsHandler]
         ];
         list.forEach(([control, description, handler]) => {
             if (!control) {
