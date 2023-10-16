@@ -63,7 +63,7 @@
     left: calc(-87px - var(--margin-left)); /* .card .main.position: left, from card.css */
     height: 5px; /* .card .mid-divider .bar: height, from card.css */
     width: 898px; /* .card: width, from card.css */
-    background: linear-gradient(to right, transparent var(--gradient-start), var(--goal-color) 90%);
+    background: linear-gradient(to right, transparent var(--gradient-start), var(--goal-color) 80%);
 }
 .card.journey.front .goal .tag {
     position: absolute;
