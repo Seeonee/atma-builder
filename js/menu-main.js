@@ -960,10 +960,11 @@ jQuery(document).ready(function ($) {
                 console.log('diagonal swipe; no effect');
                 return;
             }
+            // Remember, swiping left drags the current card left and brings in the card to its right.
             if (ratio > 1) { // Horizontal
-                cycleThroughCards(dx > 0); // True if right.
+                cycleThroughCards(dx < 0); // True if right.
             } else {
-                cycleThroughRows(dy > 0); // True if down.
+                cycleThroughRows(dy < 0); // True if down.
             }
         }
 
