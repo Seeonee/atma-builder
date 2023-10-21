@@ -929,6 +929,7 @@ jQuery(document).ready(function ($) {
 
     createMainMenu();
 
+    // Allow arrow key navigation.
     $('body').on('keydown', e => {
         if (!$(e.target).is('[contenteditable]') && e.ctrlKey) {
             if (e.which == 39 || e.which == 37) { // Right and left.
@@ -939,5 +940,41 @@ jQuery(document).ready(function ($) {
         }
     });
     
- 
+    // Also allow swipe navigation on mobile.
+    const THRESHOLD = 80;
+    let initializeSwipeEvents = function() {
+        let [x0, y0, x1, y1] = [0, 0, 0, 0];
+
+        function cycleViaSwipe() {
+            let [dx, dy] = [x1 - x0, y1 - y0];
+            let [ax, ay] = [Math.abs(dx), Math.abs(dy)];
+            console.log(`dx: ${dx} / dy: ${dy}`);
+
+            let distance = Math.max(ax, ay);
+            if (distance < THRESHOLD) {
+                console.log('short swipe; no effect');
+                return;
+            }
+            let ratio = ax / ay;
+            if (ratio > 0.5 && ratio < 2) {
+                console.log('diagonal swipe; no effect');
+                return;
+            }
+            if (ratio > 1) { // Horizontal
+                cycleThroughCards(dx > 0); // True if right.
+            } else {
+                cycleThroughRows(dy > 0); // True if down.
+            }
+        }
+
+        document.addEventListener('touchstart', e => {
+            [x0, y0] = [e.changedTouches[0].screenX, e.changedTouches[0].screenY];
+        });
+        document.addEventListener('touchend', e => {
+            [x1, y1] = [e.changedTouches[0].screenX, e.changedTouches[0].screenY];
+            cycleViaSwipe();
+        });
+    }
+    initializeSwipeEvents();
+
 });
