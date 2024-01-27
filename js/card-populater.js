@@ -376,9 +376,9 @@ jQuery(document).ready(function ($) {
             this._fillContent(card, data, '.title', 'front-title');
             this._solidifyContent(card, '.expansion', entityName);
             this._fillContent(card, data, '.main', 'front-text');
-            this._fillContent(card, data, '.goal.first', 'front-extra', 'goal-1');
-            this._fillContent(card, data, '.goal.second', 'front-extra', 'goal-2');
-            this._fillContent(card, data, '.goal.third', 'front-extra', 'goal-3');
+            this._fillContent(card, data, '.goal-1', 'front-extra', 'goal-1');
+            this._fillContent(card, data, '.goal-2', 'front-extra', 'goal-2');
+            this._fillContent(card, data, '.goal-3', 'front-extra', 'goal-3');
 
             this._fillArt(card, data, 'front-image');
             this._fillContent(card, data, '.comment', 'front-comment');
