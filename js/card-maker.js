@@ -387,9 +387,9 @@ jQuery(document).ready(function ($) {
             this._makeMapStageTextLabel('Goals:').appendTo(content);
             this._makeMapStageTextInfo(`story + <b>${modifiers[0]}</b> journey goal`).appendTo(content);
             this._makeMapStageTextLabel('Tokens:').appendTo(content);
-            this._makeMapStageTextInfo(`<b>${modifiers[1]}</b> per scene`).appendTo(content);
-            this._makeMapStageTextLabel('Unlocks:').appendTo(content);
-            this._makeMapStageTextInfo(`<b>${modifiers[2]}</b> move in scene 3`).appendTo(content);
+            this._makeMapStageTextInfo(`<b>${modifiers[1]}</b> in scene 1`).appendTo(content);
+            this._makeMapStageTextLabel('Players:').appendTo(content);
+            this._makeMapStageTextInfo(`<b>${modifiers[2]}</b> in scene 1`).appendTo(content);
             return position;
         }
         _makeMapStageTextLabel(text) {
@@ -827,10 +827,10 @@ jQuery(document).ready(function ($) {
 
             this._makeMapRoute().appendTo(card);
             this._makeMapPin('setup', '<b>GM</b>: Choose a journey; read its light side, then flip it. Choose 3 stages.<br><br>' + 
-                                      '<b>Players</b>: Choose characters. Set up as usual, dealing 1 extra super move (light side up).').appendTo(card);
-            this._makeMapStagePin(1, ['1st', '+0', 'basic']).appendTo(card);
-            this._makeMapStagePin(2, ['2nd', '+1', 'super']).appendTo(card);
-            this._makeMapStagePin(3, ['3rd', '+2', 'super']).appendTo(card);
+                                      '<b>Players</b>: Choose characters and set up as usual. In later games, some moves will unlock early.').appendTo(card);
+            this._makeMapStagePin(1, ['1st', '+0', '1 basic move']).appendTo(card);
+            this._makeMapStagePin(2, ['2nd', '+2', '2 basic moves']).appendTo(card);
+            this._makeMapStagePin(3, ['3rd', '+4', 'all moves']).appendTo(card);
             this._makeMapPin('conclusion', 'Narrate the journey\'s epilogue.').appendTo(card);
 
             this._makePlate('bottom').appendTo(card);
@@ -849,9 +849,9 @@ jQuery(document).ready(function ($) {
 
             this._makeContent('main', 'boldable multiline').appendTo(card).find('.content').html('<b>Journeys</b> let you connect multiple games of Atma into a larger narrative. The GM and players collaborate to link story goals into journey goals, and to preserve and expand the campaign world as they play.');
 
-            this._makeMapParagraph('goals', 'A stage only ends once the journey, story, and scene 3 goals are complete.').appendTo(card);
-            this._makeMapParagraph('progression', 'Players lay out an extra super move during character setup, but only unlock moves as scene 3 starts in each stage.<br><i>Keep unlocked cards between sessions.</i>').appendTo(card);
-            this._makeMapParagraph('tokens', 'The GM gets an extra token per scene in stage 2, and 2 more tokens per scene in stage 3.<br><i>Keep finished stories between sessions.</i>').appendTo(card);
+            this._makeMapParagraph('goals', 'A game only ends once the journey, story, and scene 3 goals are complete.').appendTo(card);
+            this._makeMapParagraph('progression', 'In game 2, players start with both of their basic moves unlocked; their super move still unlocks in scene 3. In game 3, players start with all moves unlocked.').appendTo(card);
+            this._makeMapParagraph('tokens', 'The GM gets 2 extra tokens at the start of game 2, and 4 extra tokens at the start of game 3.<br><i>Keep finished stories between sessions.</i>').appendTo(card);
             this._makeMapParagraph('continuity', 'After a stage ends, the GM and players can each choose 1 GM card in play to carry forward into the next stage.').appendTo(card);
 
             this._makePlate('bottom').appendTo(card);
