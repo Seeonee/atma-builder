@@ -25,6 +25,16 @@
 .card.journey .expansion.position {
     top: 652px;
 }
+.card.journey .expansion.position {
+    right: 0px;
+    width: 100%;
+    text-align: center;
+}
+.card.journey .expansion .content {
+/*    font-size: 37px;*/
+    margin-top: -7px;
+    transform-origin: center;
+}
 .card.journey .main.position {
     top: 717px; /* +63px from divider. */
 }
@@ -35,8 +45,8 @@
 .card.journey.front .goal.position {
     position: relative;
     display: block;
-    --margin-top: 35px;
-    --margin-left: 50px;
+    --margin-top: 40px;
+    --margin-left: 70px;
     margin-top: var(--margin-top);
     margin-left: var(--margin-left);
 }
@@ -59,7 +69,7 @@
 .card.journey.front .goal .line {
     position: absolute;
     --gradient-start: calc(var(--margin-left) + 87px - 45px);
-    top: 0px;
+    top: -7px;
     left: calc(-87px - var(--margin-left)); /* .card .main.position: left, from card.css */
     height: 5px; /* .card .mid-divider .bar: height, from card.css */
     width: 898px; /* .card: width, from card.css */
@@ -68,7 +78,7 @@
 .card.journey.front .goal .tag {
     position: absolute;
     top: 0px;
-    left: calc(-87px - var(--margin-left)); /* .card .main.position: left, from card.css */
+    left: calc(-97px - var(--margin-left)); /* .card .main.position: left, from card.css */
     height: 88px; /* .card.player .stat .polygon: height, from player.css */
     width: calc(75px + var(--margin-left));
     background: var(--goal-color);

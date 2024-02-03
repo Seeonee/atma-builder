@@ -374,7 +374,7 @@ jQuery(document).ready(function ($) {
 
         journeyFront(card, entityName, data) {
             this._fillContent(card, data, '.title', 'front-title');
-            this._solidifyContent(card, '.expansion', entityName);
+            // this._solidifyContent(card, '.expansion', entityName);
             this._fillContent(card, data, '.main', 'front-text');
             this._fillContent(card, data, '.goal-1', 'front-extra', 'goal-1');
             this._fillContent(card, data, '.goal-2', 'front-extra', 'goal-2');
@@ -385,7 +385,8 @@ jQuery(document).ready(function ($) {
         }
 
         journeyBack(card, entityName, data) {
-            this._solidifyContent(card, '.title', entityName);
+            this._fillContent(card, data, '.title', 'front-title');
+            // this._solidifyContent(card, '.title', entityName);
             this._fillContent(card, data, '.chapter', 'back-title');
             this._fillContent(card, data, '.main', 'back-text');
 

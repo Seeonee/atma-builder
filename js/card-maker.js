@@ -752,6 +752,7 @@ jQuery(document).ready(function ($) {
             
             this._makeMidDivider().appendTo(card);
             this._makeContent('expansion', 'uppercase').appendTo(card);
+            this._setContentText(card.find('.expansion'), 'SETUP & GOALS');
 
             this._makeContent('main', 'boldable italicizable underlinable multiline').appendTo(card);
 
@@ -768,8 +769,8 @@ jQuery(document).ready(function ($) {
             // End option 1a.
 
             // Option 1d.
-            this._makeJourneyBanner().appendTo(card.find('.goal-1 .line'));
-            card.find('.goal-1').addClass('variant1d');
+            // this._makeJourneyBanner().appendTo(card.find('.goal-1 .line'));
+            // card.find('.goal-1').addClass('variant1d');
             // End option 1d.
 
             // Option 2b.
