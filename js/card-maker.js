@@ -850,7 +850,7 @@ jQuery(document).ready(function ($) {
             this._makeContent('main', 'boldable multiline').appendTo(card).find('.content').html('<b>Journeys</b> let you connect multiple games of Atma into a larger narrative. The GM and players collaborate to link story goals into journey goals, and to preserve and expand the campaign world as they play.');
 
             this._makeMapParagraph('goals', 'A game only ends once the journey, story, and scene 3 goals are complete.').appendTo(card);
-            this._makeMapParagraph('progression', 'In game 2, players start with both of their basic moves unlocked; their super move still unlocks in scene 3. In game 3, players start with all moves unlocked.').appendTo(card);
+            this._makeMapParagraph('progression', 'Players lay out an extra super move during character setup, but only unlock moves as scene 3 starts in each stage.<br><i>Keep unlocked cards between sessions.</i>').appendTo(card);
             this._makeMapParagraph('tokens', 'The GM gets 2 extra tokens at the start of game 2, and 4 extra tokens at the start of game 3.<br><i>Keep finished stories between sessions.</i>').appendTo(card);
             this._makeMapParagraph('continuity', 'After a stage ends, the GM and players can each choose 1 GM card in play to carry forward into the next stage.').appendTo(card);
 
