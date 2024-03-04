@@ -389,7 +389,7 @@ jQuery(document).ready(function ($) {
             this._makeMapStageTextLabel('Tokens:').appendTo(content);
             this._makeMapStageTextInfo(`<b>${modifiers[1]}</b> in scene 1`).appendTo(content);
             this._makeMapStageTextLabel('Players:').appendTo(content);
-            this._makeMapStageTextInfo(`<b>${modifiers[2]}</b> in scene 1`).appendTo(content);
+            this._makeMapStageTextInfo(`<b>${modifiers[2]}</b> in scene 3`).appendTo(content);
             return position;
         }
         _makeMapStageTextLabel(text) {
@@ -827,10 +827,10 @@ jQuery(document).ready(function ($) {
 
             this._makeMapRoute().appendTo(card);
             this._makeMapPin('setup', '<b>GM</b>: Choose a journey; read its light side, then flip it. Choose 3 stages.<br><br>' + 
-                                      '<b>Players</b>: Choose characters and set up as usual. In later games, some moves will unlock early.').appendTo(card);
-            this._makeMapStagePin(1, ['1st', '+0', '1 basic move']).appendTo(card);
-            this._makeMapStagePin(2, ['2nd', '+2', '2 basic moves']).appendTo(card);
-            this._makeMapStagePin(3, ['3rd', '+4', 'all moves']).appendTo(card);
+                                      '<b>Players</b>: Choose characters. Begin with 1 extra super move (locked). New moves only unlock in scene 3.').appendTo(card);
+            this._makeMapStagePin(1, ['1st', '+0', 'basic move']).appendTo(card);
+            this._makeMapStagePin(2, ['2nd', '+2', 'super move']).appendTo(card);
+            this._makeMapStagePin(3, ['3rd', '+4', 'super move']).appendTo(card);
             this._makeMapPin('conclusion', 'Narrate the journey\'s epilogue.').appendTo(card);
 
             this._makePlate('bottom').appendTo(card);
