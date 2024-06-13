@@ -385,7 +385,7 @@ jQuery(document).ready(function ($) {
             $('<span class="content stage-name underlinable">').appendTo(position).html(`<u>stage <span class="digit">${label}</span></u>`);
             var content = $('<span class="grid content boldable italicizable">').appendTo(position);
             this._makeMapStageTextLabel('Goals:').appendTo(content);
-            this._makeMapStageTextInfo(`story + <b>${modifiers[0]}</b> journey goal`).appendTo(content);
+            this._makeMapStageTextInfo(`tie in <b>${modifiers[0]}</b> journey goal`).appendTo(content);
             this._makeMapStageTextLabel('Tokens:').appendTo(content);
             this._makeMapStageTextInfo(`<b>${modifiers[1]}</b> in scene 1`).appendTo(content);
             this._makeMapStageTextLabel('Players:').appendTo(content);
@@ -849,10 +849,10 @@ jQuery(document).ready(function ($) {
 
             this._makeContent('main', 'boldable multiline').appendTo(card).find('.content').html('<b>Journeys</b> let you connect multiple games of Atma into a larger narrative. The GM and players collaborate to link story goals into journey goals, and to preserve and expand the campaign world as they play.');
 
-            this._makeMapParagraph('goals', 'A game only ends once the journey, story, and scene 3 goals are complete.').appendTo(card);
+            this._makeMapParagraph('goals', 'In each game, decide how the story goal supports the current journey goal.').appendTo(card);
             this._makeMapParagraph('progression', 'Players lay out an extra super move during character setup, but only unlock moves as scene 3 starts in each stage.<br><i>Keep unlocked cards between sessions.</i>').appendTo(card);
             this._makeMapParagraph('tokens', 'The GM gets 2 extra tokens at the start of game 2, and 4 extra tokens at the start of game 3.<br><i>Keep finished stories between sessions.</i>').appendTo(card);
-            this._makeMapParagraph('continuity', 'After a stage ends, the GM and players can each choose 1 GM card in play to carry forward into the next stage.').appendTo(card);
+            this._makeMapParagraph('continuity', 'After a stage ends, the GM and players can each choose 1 GM card in play to carry forward into future games.').appendTo(card);
 
             this._makePlate('bottom').appendTo(card);
             this._makeContent('type', 'uppercase', false).appendTo(card);
