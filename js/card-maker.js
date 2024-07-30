@@ -828,9 +828,9 @@ jQuery(document).ready(function ($) {
             this._makeMapRoute().appendTo(card);
             this._makeMapPin('setup', '<b>GM</b>: Choose a journey; read its light side, then flip it. Choose 3 stages.<br><br>' + 
                                       '<b>Players</b>: Choose characters. Begin with 1 extra super move (locked). New moves only unlock in scene 3.').appendTo(card);
-            this._makeMapStagePin(1, ['1st', '+0', 'basic move']).appendTo(card);
-            this._makeMapStagePin(2, ['2nd', '+2', 'super move']).appendTo(card);
-            this._makeMapStagePin(3, ['3rd', '+4', 'super move']).appendTo(card);
+            this._makeMapStagePin(1, ['1st', '+0', 'basic move 2']).appendTo(card);
+            this._makeMapStagePin(2, ['2nd', '+2', 'super move 1']).appendTo(card);
+            this._makeMapStagePin(3, ['3rd', '+4', 'super move 2']).appendTo(card);
             this._makeMapPin('conclusion', 'Narrate the journey\'s epilogue.').appendTo(card);
 
             this._makePlate('bottom').appendTo(card);
