@@ -128,7 +128,7 @@
 
 
 /* Boss extra styling. */
-/*
+/* Add an asterisk right before this slash --> /
 .card.extra .title .content.color-first-letter:not(.editing)::first-letter, 
 .card.extra .type .content {
     color: #d7162f;
@@ -142,4 +142,4 @@
 .card.star.extra.back .symbol .img {
     background-image: url("../images/corner/boss_extra_back.png");
 }
-/*
+/**/
