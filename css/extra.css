@@ -127,3 +127,19 @@
 }
 
 
+/* Boss extra styling. */
+/*
+.card.extra .title .content.color-first-letter:not(.editing)::first-letter, 
+.card.extra .type .content {
+    color: #d7162f;
+}
+.card.extra .plate.bottom .polygon {
+    background-color: #d7162f;
+}
+.card.star.extra .symbol .img {
+    background-image: url("../images/corner/boss_extra.png");
+}
+.card.star.extra.back .symbol .img {
+    background-image: url("../images/corner/boss_extra_back.png");
+}
+/*
