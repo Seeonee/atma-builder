@@ -46,7 +46,7 @@
     position: relative;
     display: block;
     --margin-top: 40px;
-    --margin-left: 70px;
+    --margin-left: 90px;
     margin-top: var(--margin-top);
     margin-left: var(--margin-left);
 }
